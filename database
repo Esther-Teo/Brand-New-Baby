@@ -1,0 +1,27 @@
+drop database if exists BBB_database;
+
+create database BBB_database;
+
+use BBB_database;
+
+CREATE TABLE if not exists donoraccount (
+  username varchar(256) NOT NULL,
+  passcode varchar(256) NOT NULL,
+  email varchar (256) NOT NULL,
+  phonenumber int NOT NULL,
+  address varchar(256) NOT NULL
+);
+
+CREATE TABLE if not exists beneficiaryaccount (
+  username varchar(20) NOT NULL,
+  passcode varchar(256) NOT NULL,
+  email varchar (256) NOT NULL,
+  phonenumber int NOT NULL,
+  address varchar(256) NOT NULL
+);
+
+INSERT INTO beneficiaryaccount (username, passcode, email, phonenumber, address) VALUES
+('zack', 'ilovecoding122', 'zack&cody@gmail.com', '98764321', '72 Marine Drive'),
+('thomas', 'baby98', 'thomastrain@yahoo.com.sg', '87645441', 'Ang Mo Kio Avenue 6'),
+('wong shi lin', 'heeehaw$$', 'shilinfang@hotmail.com', '86774333', 'Sengkang Blk 126'),
+('tammy ho', 'hahahaha@88', 'tammythehamster@gmail.com', '62352345', 'Bedok Blk 223');
