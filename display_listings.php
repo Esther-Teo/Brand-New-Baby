@@ -1,3 +1,12 @@
+<?php
+
+  spl_autoload_register(
+    function($class){
+      require_once "$class.php";
+      }
+  );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +20,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <script src="./listings.js"></script>
+    <script src="./listings1.js"></script>
 
     <title>Brand New Baby (Listings)</title>
 </head>
 <body onload="display_default()">
 
     <div id="listing" style="margin-top: 20px; margin-left: 15px;">
+        
+        <?php
+            # Obtain listings from ListingDAO
+            # Display all listings in divs
+
+            $listingDAO = new ListingDAO();
+            $listings = $listingDAO->getListing();
+            foreach ($listings as $listing){
+                echo "<div style='border: 1px solid black; margin-bottom: 20px; width: 40%;' >
+                    <ul>
+                        <li style='list-style: none; margin-top: 5px;'> Name: {$listing->getName()}</li>
+                        <li style='list-style: none; margin-top: 5px;'> Category: {$listing->getCategory()}</li>
+                        <li style='list-style: none; margin-top: 5px;'> Item: {$listing->getItem()}</li>
+                        <li style='list-style: none; margin-top: 5px;'> Nearest MRT: {$listing->getMrt()}</li>
+                    </ul>
+                    
+                    <div style='display: flex; justify-content: flex-end; margin-right: 10px; margin-bottom: 10px;'><input type='submit' value='Find out more &#8594;'></div>
+                </div>
+                ";
+            }
+        ?>
+        
 
     </div>
     
