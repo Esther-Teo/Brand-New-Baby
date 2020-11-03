@@ -1,3 +1,16 @@
+<?php
+require_once 'common.php';
+
+// WRITE YOUR CODES HERE
+$tmp_username = '';
+if (isset($_SESSION["register_fail"])){
+    $tmp_username = $_SESSION["register_fail"];
+    unset ($_SESSION["register_fail"]);
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,8 +67,8 @@
 
         <div class = "login-container">
 
-            <form action = "process_login.php" method="POST">
-            <!-- Login heading -->
+            <form action = "process_register.php" method="POST">
+            <!-- Register heading -->
                 <h2>
                     Register Now!
                 </h2>
@@ -86,7 +99,7 @@
 
                 <div class = "form-group">
 
-                    <input type="password" name="password" placeholder = "Confirm Password" class="form-control" required="required"/>
+                    <input type="password" name="confirmPassword" placeholder = "Confirm Password" class="form-control" required="required"/>
                     
                 </div>
 
@@ -98,19 +111,13 @@
 
                 <div class = "form-group">
 
-                    <button type="submit" class="btn btn-warning btn-block">Donor</button>
-
-                </div>
-
-                <div class = "form-group">
-
-                    <button type="submit" class="btn btn-info btn-block">Beneficiary</button>
+                    <input type="text" name="acctype" placeholder = "Donor or Beneficiary?" class="form-control" required="required"/>
 
                 </div>
 
                 <div class="form-group">
-            
-                    <a href="#" class="float-right" button type="submit" class="btn btn-danger btn-block">Register</button></a>
+
+                    <button type="submit" class="btn btn-danger btn-block" name="btn_register">Register</button></a>
 
                 </div>   
 
@@ -118,7 +125,6 @@
 
         </div>
 
-         
     </body>
 </html>
 
