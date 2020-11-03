@@ -12,9 +12,14 @@
         }
     }*/
     #Note that the php is not completed
-
+    require_once 'common.php';
+    $username='';
+    if (isset ($_SESSION["login_page"])){
+        $username = $_SESSION["login_page"];
+        unset ($_SESSION["login_page"]);
+}
 ?>
-
+?>
 -->
 
 <!DOCTYPE html>
@@ -81,7 +86,7 @@
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_email" placeholder = "Email Address" class="form-control" required="required"/>
+                    <input type="text" name="username" placeholder = "Email Address" class="form-control" required="required"/>
     
                 </div>
 
@@ -93,12 +98,12 @@
 
                 <div class = "form-group">
 
-                    <button type="submit" class="btn btn-danger btn-block">Log in</button>
+                    <button type="submit" class="btn btn-danger btn-block" name="btn-login">Log in</button>
 
                 </div>
 
                 <div class="clearfix">
-                    <a href="#" class="float-left">Create An Account</a>
+                    <a href="register.php" class="float-left">Create An Account</a>
                     <a href="#" class="float-right">Forgot Password?</a>
                 </div>   
 
