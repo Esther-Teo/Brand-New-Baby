@@ -110,7 +110,7 @@
             </form>
 
         </div>
-
+        <?php printErrors(); ?>
          
     </body>
 </html>
