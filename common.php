@@ -20,18 +20,18 @@ session_start();
 print errors based on session variable 'errors'
 ***/
 
-/*** function printErrors() {
+function printErrors() {
     if(isset($_SESSION['errors'])){
         
         echo "<ul style='color:red;'>";
         
         foreach ($_SESSION['errors'] as $error) {
-            echo "<li>" . $error . "</li>";
+            echo $error . "</br>";
         }
         
         echo "</ul>";   
         unset($_SESSION['errors']);
     }
-}***/
+}
 
 ?>
