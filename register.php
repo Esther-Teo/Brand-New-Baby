@@ -25,6 +25,17 @@ if (isset($_SESSION["register_fail"])){
     </head>
 
     <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
 
         html, body {
             height: 100%; 
@@ -75,43 +86,43 @@ if (isset($_SESSION["register_fail"])){
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_name" placeholder = "Name" class="form-control" required="required"/>
+                    <input type="text" name="user_name" placeholder = "Name" class="form-control" />
     
                 </div>
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_email" placeholder = "Email Address" class="form-control" required="required"/>
+                    <input type="text" name="user_email" placeholder = "Email Address" class="form-control" />
                     
                 </div>
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_number" placeholder = "Mobile Number" class="form-control" required="required"/>
+                    <input type="number" name="user_number" placeholder = "Mobile Number" class="form-control" />
                     
                 </div>
 
                 <div class = "form-group">
 
-                    <input type="password" name="password" placeholder = "Password" class="form-control" required="required"/>
+                    <input type="password" name="password" placeholder = "Password" class="form-control" />
                     
                 </div>
 
                 <div class = "form-group">
 
-                    <input type="password" name="confirmPassword" placeholder = "Confirm Password" class="form-control" required="required"/>
+                    <input type="password" name="confirmPassword" placeholder = "Confirm Password" class="form-control" />
                     
                 </div>
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_address" placeholder = "Address" class="form-control" required="required"/>
+                    <input type="text" name="user_address" placeholder = "Address" class="form-control" />
                     
                 </div>
 
                 <div class = "form-group">
 
-                    <input type="text" name="acctype" placeholder = "Donor or Beneficiary?" class="form-control" required="required"/>
+                    <input type="text" name="acctype" placeholder = "Donor or Beneficiary?" class="form-control" />
 
                 </div>
 
@@ -122,10 +133,9 @@ if (isset($_SESSION["register_fail"])){
                 </div>   
 
             </form>
-
+            <?php printErrors(); ?>
         </div>
-
+        
     </body>
 </html>
-
    
