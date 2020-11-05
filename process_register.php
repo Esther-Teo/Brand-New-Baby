@@ -6,9 +6,19 @@ $errors = [];
 
 
 // Get the data from form processing
-$username = $_POST["user_email"]; 
-if ( strlen($username) == 0 ) {
+$rname = $_POST["user_name"]; 
+if ( strlen($rname) == 0 ) {
     $errors[] = "Name cannot be empty nor blank.";
+}
+
+$username = $_POST["user_email"]; 
+if ( strlen($username) == 0 || !strstr($username, "@")) {
+    $errors[] = "Please enter a valid email address.";
+}
+
+$mobilenumber = $_POST["user_number"]; 
+if ( strlen($mobilenumber) == 0 ) {
+    $errors[] = "Please enter a valid phone number.";
 }
 
 $password = $_POST["password"]; 
@@ -23,6 +33,21 @@ if ($password != $confirm_password){
     $errors[] = "The passwords are different.";
 }
 
+$addrss = $_POST["user_address"]; 
+if ( strlen($addrss) == 0 ) {
+    $errors[] = "Address cannot be empty nor blank.";
+}
+
+//elseif() 
+
+$acctype = $_POST["acctype"]; 
+if ( strlen($acctype) == 0 ) {
+    $errors[] = "Please state if you are a donor or beneficiary.";
+}
+
+elseif(!(strtolower($acctype) === "donor" || strtolower($acctype) === "beneficiary")) {
+    $errors[] = "Please state if you are a donor or beneficiary.";
+}
 
 
 // Check if username is already taken
