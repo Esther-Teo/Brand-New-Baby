@@ -4,16 +4,16 @@ create database BBB_database;
 use BBB_database;
 
 CREATE TABLE if not exists useraccount (
-  username varchar(20) NOT NULL,
+  useremail varchar(20) NOT NULL,
   password_hash varchar(64) NOT NULL,
-  rname varchar(64) NOT NULL,
+  username varchar(64) NOT NULL,
   mobilenumber varchar(64) NOT NULL,
   mrt varchar(64) NOT NULL,
   acctype varchar(64) NOT NULL
 );
 
 ALTER TABLE useraccount 
-  ADD PRIMARY KEY (username);
+  ADD PRIMARY KEY (useremail);
 
 CREATE TABLE if not exists donorlisting (
   username varchar(256) NOT NULL,
