@@ -6,13 +6,13 @@ $errors = [];
 
 
 // Get the data from form processing
-$rname = $_POST["user_name"]; 
-if ( strlen($rname) == 0 ) {
-    $errors[] = "Name cannot be empty nor blank.";
+$username = $_POST["user_name"]; 
+if ( strlen($username) == 0 ) {
+    $errors[] = "Username cannot be empty nor blank.";
 }
 
-$username = $_POST["user_email"]; 
-if ( strlen($username) == 0 || !strstr($username, "@")) {
+$useremail = $_POST["user_email"]; 
+if ( strlen($useremail) == 0 || !strstr($useremail, "@")) {
     $errors[] = "Please enter a valid email address.";
 }
 
@@ -51,9 +51,9 @@ elseif(!(strtolower($acctype) === "donor" || strtolower($acctype) === "beneficia
 
 
 // Check if username is already taken
-if ( strlen($username) != 0 ){
+if ( strlen($useremail) != 0 ){
     $dao = new UserDAO();
-    $user = $dao->get($username);
+    $user = $dao->get($useremail);
 
     if ($user){
         $errors[] = "Email is already taken.";
@@ -72,14 +72,14 @@ if ( count($errors) > 0 ) {
     return;
 }
 
-$rname = $_POST["user_name"];
+$username = $_POST["user_name"];
 $mobilenumber = $_POST["user_number"];
 $mrt = $_POST["user_address"];
 $acctype = $_POST["acctype"];
 
 
 $hashed = password_hash($password, PASSWORD_DEFAULT);
-$new_user = new User($username, $hashed, $rname, $mobilenumber, $mrt, $acctype);
+$new_user = new User($useremail, $hashed, $username, $mobilenumber, $mrt, $acctype);
 $dao = new UserDAO();
     
 $status = $dao->create($new_user);
@@ -87,13 +87,13 @@ $status = $dao->create($new_user);
     
 if ( $status ) {
     // success; redirect page
-    $_SESSION["login_page"] = $username;
+    $_SESSION["login_page"] = $useremail;
     header("Location: login.php");
     exit();
 }
 else
 {
-    $_SESSION["register_fail"]= $username;
+    $_SESSION["register_fail"]= $useremail;
     $errors[] = "Error in registering user user.";
     header("Location: register.php");
     return;
