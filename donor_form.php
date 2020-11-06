@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <form method="POST" action="" >
+    <form method="POST" action="./process_donation.php">
         <div>
             <h4>What category do you want to donate?</h4>
             <select name="donationCategory" id="donationCategory" required onchange="updateItemOption()">
