@@ -11,7 +11,7 @@
     public function getListing() {
           $connMgr = new ConnectionManager();      
           $pdo = $connMgr->getConnection();  
-          $sql = 'SELECT username, category, item, mrt FROM beneficiaryaccount';         
+          $sql = 'SELECT username, category, item, mrt FROM beneficiarylisting';         
           $stmt = $pdo->prepare($sql);      
           $stmt->execute();			
           $result = [];
