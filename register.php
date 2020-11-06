@@ -88,7 +88,7 @@ if (isset($_SESSION["register_fail"])){
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_name" placeholder = "Name" class="form-control" />
+                    <input type="text" name="user_name" placeholder = "Username" class="form-control" />
     
                 </div>
 
@@ -145,4 +145,3 @@ if (isset($_SESSION["register_fail"])){
         
     </body>
 </html>
-
