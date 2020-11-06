@@ -13,9 +13,9 @@
     }*/
     #Note that the php is not completed
     require_once 'common.php';
-    $username='';
+    $useremail='';
     if (isset ($_SESSION["login_page"])){
-        $username = $_SESSION["login_page"];
+        $useremail = $_SESSION["login_page"];
         unset ($_SESSION["login_page"]);
 }
 ?>
@@ -86,7 +86,7 @@
 
                 <div class = "form-group">
 
-                    <input type="text" name="username" placeholder = "Email Address" class="form-control" required="required"/>
+                    <input type="text" name="useremail" placeholder = "Email Address" class="form-control" required="required"/>
     
                 </div>
 
