@@ -5,17 +5,17 @@
     $errors = [];
 
     // Get the data login.php
-    $username = $_POST["username"];
+    $useremail = $_POST["useremail"];
     $password = $_POST["password"];
 
     // Create the DAO object to facilitate connection to the database.
     $dao = new UserDAO();
-    $user = $dao->get( $username );
+    $user = $dao->get( $useremail );
 
-    // Check if the username exists
+    // Check if the useremail exists
     if ($user)
     {
-        // If username exists
+        // If useremail exists
         // get the hashed password from the database
         // Match the hashed password with the one which user entered
         // if it does not match. -> error
@@ -25,7 +25,7 @@
 
         if ($status)
         { 
-            $_SESSION["username"] = $username;
+            $_SESSION["useremail"] = $useremail;
             header("Location: home.html");
             return;
         }
@@ -35,7 +35,7 @@
             // return to login page and show error
             $errors [] = "Invalid password.";
             $_SESSION['errors'] = $errors;
-            $_SESSION["login_page"] = $username;
+            $_SESSION["login_page"] = $useremail;
             header("Location: login.php");
             return;
 
@@ -45,7 +45,7 @@
     {
         $errors [] = "Username does not exist in the database.";
         $_SESSION['errors'] = $errors;
-        $_SESSION["login_page"] = $username;
+        $_SESSION["login_page"] = $useremail;
         header("Location: login.php");
         return;
             
