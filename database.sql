@@ -1,16 +1,19 @@
 drop database if exists BBB_database;
 
 create database BBB_database;
-
 use BBB_database;
 
-CREATE TABLE if not exists donoraccount (
-  username varchar(256) NOT NULL,
-  passcode varchar(256) NOT NULL,
-  email varchar (256) NOT NULL,
-  phonenumber int NOT NULL,
-  mrt varchar(256) NOT NULL
+CREATE TABLE if not exists useraccount (
+  username varchar(20) NOT NULL,
+  password_hash varchar(64) NOT NULL,
+  rname varchar(64) NOT NULL,
+  mobilenumber varchar(64) NOT NULL,
+  mrt varchar(64) NOT NULL,
+  acctype varchar(64) NOT NULL
 );
+
+ALTER TABLE useraccount 
+  ADD PRIMARY KEY (username);
 
 CREATE TABLE if not exists donorlisting (
   username varchar(256) NOT NULL,
@@ -19,14 +22,6 @@ CREATE TABLE if not exists donorlisting (
   item varchar(256) NOT NULL,
   quantity varchar(256) NOT NULL,
   itemcondition varchar(256) NOT NULL
-);
-
-CREATE TABLE if not exists beneficiaryaccount (
-  username varchar(20) NOT NULL,
-  passcode varchar(256) NOT NULL, -- change to hashed password?
-  email varchar (256) NOT NULL,
-  phonenumber int NOT NULL,
-  mrt varchar(256) NOT NULL
 );
 
 CREATE TABLE if not exists beneficiarylisting (
@@ -39,11 +34,6 @@ CREATE TABLE if not exists beneficiarylisting (
   comments varchar(500)
 );
 
-INSERT INTO beneficiaryaccount (username, passcode, email, phonenumber, mrt) VALUES
-('Zack', 'ilovecoding122', 'zack&cody@gmail.com', '98764321', 'Paya Lebar'),
-('Thomas', 'baby98', 'thomastrain@yahoo.com.sg', '87645441', 'Boon Lay' ),
-('Wong Shi Lin', 'heeehaw$$', 'shilinfang@hotmail.com', '86774333', 'Sengkang'),
-('Tammy Ho', 'hahahaha@88', 'tammythehamster@gmail.com', '62352345', 'Bedok');
 
 INSERT INTO beneficiarylisting (username, mrt, category, item, quantity, wantedby, comments) VALUES 
 ('Zack', 'Paya Lebar', 'Hygiene', 'Diapers', '2 packs', '2020/11/12', 'Merries Tape Diapers - S' ),
