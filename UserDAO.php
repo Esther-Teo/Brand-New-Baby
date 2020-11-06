@@ -1,3 +1,4 @@
+
 <?php
 
 class UserDAO {
@@ -9,7 +10,7 @@ class UserDAO {
         $conn = $connMgr->connect();
         
         // prepare select
-        $sql = "SELECT username, password_hash, rname, mobilenumber, addrss, acctype FROM useraccount WHERE username = :username";
+        $sql = "SELECT username, password_hash, rname, mobilenumber, mrt, acctype FROM useraccount WHERE username = :username";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
             
@@ -17,7 +18,7 @@ class UserDAO {
         if ( $stmt->execute() ) {
             
             while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
-                $user = new User($row["username"], $row["password_hash"], $row["rname"], $row["mobilenumber"], $row["addrss"], $row["acctype"]);
+                $user = new User($row["username"], $row["password_hash"], $row["rname"], $row["mobilenumber"], $row["mrt"], $row["acctype"]);
             }
             
         }
@@ -40,14 +41,15 @@ class UserDAO {
         $conn = $connMgr->connect();
         
         // prepare insert
-        $sql = "INSERT INTO useraccount (username, password_hash, rname, mobilenumber, addrss, acctype) VALUES (:username, :passwordHash, :rname, :mobilenumber, :addrss, :acctype)";
+
+        $sql = "INSERT INTO useraccount (username, password_hash, rname, mobilenumber, mrt, acctype) VALUES (:username, :passwordHash, :rname, :mobilenumber, :mrt, :acctype)";
         $stmt = $conn->prepare($sql);
         
         $username = $user->getUsername();
         $passwordHash = $user->getPasswordHash();
         $rname = $user->getRname();
         $mobilenumber = $user->getMobileNumber();
-        $addrss = $user->getAddrss();
+        $mrt = $user->getMrt();
         $acctype = $user->getAcctype();
         
 
@@ -55,7 +57,7 @@ class UserDAO {
         $stmt->bindParam(":passwordHash", $passwordHash, PDO::PARAM_STR);
         $stmt->bindParam(":rname", $rname, PDO::PARAM_STR);
         $stmt->bindParam(":mobilenumber", $mobilenumber, PDO::PARAM_STR);
-        $stmt->bindParam(":addrss", $addrss, PDO::PARAM_STR);
+        $stmt->bindParam(":mrt", $mrt, PDO::PARAM_STR);
         $stmt->bindParam(":acctype", $acctype, PDO::PARAM_STR);
         
 
@@ -104,3 +106,4 @@ class UserDAO {
         return $result;
     }
 }
+?>
