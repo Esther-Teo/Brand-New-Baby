@@ -71,6 +71,8 @@ if (isset($_SESSION["register_fail"])){
             font-size: 15px;
             font-weight: bold;
         }
+
+        
         </style>
 
 
@@ -122,7 +124,12 @@ if (isset($_SESSION["register_fail"])){
 
                 <div class = "form-group">
 
-                    <input type="text" name="acctype" placeholder = "Donor or Beneficiary?" class="form-control" />
+                    <input type="radio" name="acctype" placeholder = "Donor or Beneficiary?" id="donor" value="donor">
+                    <label for="donor">Donor</label>
+
+                    <input type="radio" name="acctype" placeholder = "Donor or Beneficiary?" id="beneficiary" value="beneficiary">
+                    <label for="beneficiary">Beneficiary</label>
+
 
                 </div>
 
@@ -138,4 +145,3 @@ if (isset($_SESSION["register_fail"])){
         
     </body>
 </html>
-   
