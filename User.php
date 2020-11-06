@@ -5,17 +5,17 @@ class User {
     private $passwordHash;
     private $rname;
     private $mobilenumber;
-    private $addrss;
+    private $mrt;
     private $acctype;
     
 
 
-    function __construct($username, $passwordHash, $rname, $mobilenumber, $addrss, $acctype) {
+    function __construct($username, $passwordHash, $rname, $mobilenumber, $mrt, $acctype) {
         $this->username = $username;
         $this->passwordHash = $passwordHash;
         $this->rname = $rname;
         $this->mobilenumber = $mobilenumber;
-        $this->addrss = $addrss;
+        $this->mrt = $mrt;
         $this->acctype = $acctype;
     
     }
@@ -40,8 +40,8 @@ class User {
         return $this->mobilenumber;
     }
 
-    public function getAddrss(){
-        return $this->addrss;
+    public function getMrt(){
+        return $this->mrt;
     }
 
     public function getAcctype(){
