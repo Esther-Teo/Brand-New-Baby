@@ -1,27 +1,27 @@
 <?php
 
 class User {
-    private $username;
+    private $useremail;
     private $passwordHash;
-    private $rname;
+    private $username;
     private $mobilenumber;
     private $mrt;
     private $acctype;
     
 
 
-    function __construct($username, $passwordHash, $rname, $mobilenumber, $mrt, $acctype) {
-        $this->username = $username;
+    function __construct($useremail, $passwordHash, $username, $mobilenumber, $mrt, $acctype) {
+        $this->useremail = $useremail;
         $this->passwordHash = $passwordHash;
-        $this->rname = $rname;
+        $this->username = $username;
         $this->mobilenumber = $mobilenumber;
         $this->mrt = $mrt;
         $this->acctype = $acctype;
     
     }
 
-    public function getUsername(){
-        return $this->username;
+    public function getUseremail(){
+        return $this->useremail;
     }
 
     public function getPasswordHash(){
@@ -32,8 +32,8 @@ class User {
         $this->passwordHash = $hashed;
     }
     
-    public function getRname(){
-        return $this->rname;
+    public function getUsername() {
+        return $this->username;
     }
 
     public function getMobileNumber(){
