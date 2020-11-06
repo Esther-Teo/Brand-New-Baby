@@ -33,9 +33,9 @@ if ($password != $confirm_password){
     $errors[] = "The passwords are different.";
 }
 
-$addrss = $_POST["user_address"]; 
-if ( strlen($addrss) == 0 ) {
-    $errors[] = "Address cannot be empty nor blank.";
+$mrt = $_POST["user_address"]; 
+if ( strlen($mrt) == 0 ) {
+    $errors[] = "Nearest MRT cannot be empty nor blank.";
 }
 
 //elseif() 
@@ -74,12 +74,12 @@ if ( count($errors) > 0 ) {
 
 $rname = $_POST["user_name"];
 $mobilenumber = $_POST["user_number"];
-$addrss = $_POST["user_address"];
+$mrt = $_POST["user_address"];
 $acctype = $_POST["acctype"];
 
 
 $hashed = password_hash($password, PASSWORD_DEFAULT);
-$new_user = new User($username, $hashed, $rname, $mobilenumber, $addrss, $acctype);
+$new_user = new User($username, $hashed, $rname, $mobilenumber, $mrt, $acctype);
 $dao = new UserDAO();
     
 $status = $dao->create($new_user);
