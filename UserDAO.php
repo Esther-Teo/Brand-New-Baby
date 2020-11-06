@@ -1,24 +1,23 @@
-
 <?php
 
 class UserDAO {
        
-    function get( $username ) {
+    function get( $useremail ) {
         
         // connect to database
         $connMgr = new ConnectionManager();
         $conn = $connMgr->connect();
         
         // prepare select
-        $sql = "SELECT username, password_hash, rname, mobilenumber, mrt, acctype FROM useraccount WHERE username = :username";
+        $sql = "SELECT useremail, password_hash, username, mobilenumber, mrt, acctype FROM useraccount WHERE useremail = :useremail";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+        $stmt->bindParam(":useremail", $useremail, PDO::PARAM_STR);
             
         $user = null;
         if ( $stmt->execute() ) {
             
             while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
-                $user = new User($row["username"], $row["password_hash"], $row["rname"], $row["mobilenumber"], $row["mrt"], $row["acctype"]);
+                $user = new User($row["useremail"], $row["password_hash"], $row["username"], $row["mobilenumber"], $row["mrt"], $row["acctype"]);
             }
             
         }
@@ -42,20 +41,20 @@ class UserDAO {
         
         // prepare insert
 
-        $sql = "INSERT INTO useraccount (username, password_hash, rname, mobilenumber, mrt, acctype) VALUES (:username, :passwordHash, :rname, :mobilenumber, :mrt, :acctype)";
+        $sql = "INSERT INTO useraccount (useremail, password_hash, username, mobilenumber, mrt, acctype) VALUES (:useremail, :passwordHash, :username, :mobilenumber, :mrt, :acctype)";
         $stmt = $conn->prepare($sql);
         
-        $username = $user->getUsername();
+        $useremail = $user->getUseremail();
         $passwordHash = $user->getPasswordHash();
-        $rname = $user->getRname();
+        $username = $user->getUsername();
         $mobilenumber = $user->getMobileNumber();
         $mrt = $user->getMrt();
         $acctype = $user->getAcctype();
         
 
-        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+        $stmt->bindParam(":useremail", $useremail, PDO::PARAM_STR);
         $stmt->bindParam(":passwordHash", $passwordHash, PDO::PARAM_STR);
-        $stmt->bindParam(":rname", $rname, PDO::PARAM_STR);
+        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
         $stmt->bindParam(":mobilenumber", $mobilenumber, PDO::PARAM_STR);
         $stmt->bindParam(":mrt", $mrt, PDO::PARAM_STR);
         $stmt->bindParam(":acctype", $acctype, PDO::PARAM_STR);
@@ -83,13 +82,13 @@ class UserDAO {
         $conn = $connMgr->connect();
         
         // prepare insert
-        $sql = "UPDATE useraccount SET password_hash = :passwordHash  WHERE username = :username";
+        $sql = "UPDATE useraccount SET password_hash = :passwordHash  WHERE useremail = :useremail";
         $stmt = $conn->prepare($sql);
         
-        $username = $user->getUsername();
+        $useremail = $user->getUsername();
         $passwordHash = $user->getPasswordHash();
 
-        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+        $stmt->bindParam(":useremail", $useremail, PDO::PARAM_STR);
         $stmt->bindParam(":passwordHash", $passwordHash, PDO::PARAM_STR);
         
 
