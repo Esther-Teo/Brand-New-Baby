@@ -10,7 +10,7 @@
 
     public function getExpandedListing($name) {
           $connMgr = new ConnectionManager();      
-          $pdo = $connMgr->getConnection();  
+          $pdo = $connMgr->connect();  
           $sql = 'SELECT username, category, item, quantity, wantedby, mrt, comments FROM beneficiarylisting where username = :name';         
           $stmt = $pdo->prepare($sql);   
           $stmt->bindParam(':name', $name, PDO::PARAM_STR);  
