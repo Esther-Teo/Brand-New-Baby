@@ -10,7 +10,7 @@
 
     public function getDonation() {
         $connMgr = new ConnectionManager();      
-        $pdo = $connMgr->getConnection();  
+        $pdo = $connMgr->connect();  
         $sql = 'SELECT username, category, item, mrt FROM donorlisting';         
         $stmt = $pdo->prepare($sql);      
         $stmt->execute();			

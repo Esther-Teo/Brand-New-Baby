@@ -10,7 +10,7 @@
 
     public function getExpandedDonation($name) {
           $connMgr = new ConnectionManager();      
-          $pdo = $connMgr->getConnection();  
+          $pdo = $connMgr->connect();  
           $sql = 'SELECT username, mrt, category, item, quantity, itemcondition FROM donorlisting where username = :name';         
           $stmt = $pdo->prepare($sql);   
           $stmt->bindParam(':name', $name, PDO::PARAM_STR);  
