@@ -36,6 +36,8 @@
                 width: auto;
             }
         </style>
+
+         <script src="./beneficiaryForm.js"></script>
     
     </head>
     <body>
@@ -43,26 +45,27 @@
         <div class = "container">
             <h2>Please fill in the following details</h2>
 
-            <form action = "listing.php" method="POST">
+            <form action="./process_beneficiary_form.php" method="POST">
 
                 <div class = "form-group">
-
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name" placeholder="Lavanya" class="form-control">
-    
+                    <select name="requestCategory" id="requestCategory"  required onchange="updateItemOption()">
+                        <option value="" disabled selected>Select your category</option>
+                        <option value="clothing" >Clothing</option>
+                        <option value="toys" >Toys</option>
+                        <option value="hygiene" >Hygiene</option>
+                    </select>
                 </div>
 
-                <div class = "form-group">
-
+                <div class = "form-group" id="requestItem">
                     <label for="items">Items:</label>
-                    <input type="text" id="items" name="user_items" placeholder="Pampers Baby Dry Tape Diapers" class="form-control">
+                    <input type="text" id="items" name="user_items" class="form-control">
                     
                 </div>
 
                 <div class = "form-group">
 
                     <label for="quantity">Quantity:</label>
-                    <input type="text" id="quantity" name="user_quantity" placeholder="3" class="form-control">
+                    <input type="text" id="quantity" name="user_quantity" class="form-control">
                     
                 </div>
 
@@ -75,16 +78,16 @@
 
                 <div class = "form-group">
 
-                    <label for="mrt">Nearest MRT:</label>
-                    <input type="text" id="mrt" name="user_mrt" placeholder="Boon Keng" class="form-control">
+                    <label for="comments">Comments:</label>
+                    <input type="textarea" name="user_comments" class="form-control"/>
                     
                 </div>
-
-                <div class = "form-group">
-
-                    <label for="comments">Comments:</label>
-                    <input type="textarea" name="user_comments" placeholder = "Would be great if the diapers are size 2 for a 3 month old" class="form-control"/>
-                    
+                
+                <div>
+                    <input type="reset">
+                    <!-- use css to style the text to appear as button, upon clicking, turn the href back to the prev page -->
+                    <button href="">Cancel</button>
+                    <input type="submit" value="Submit">
                 </div>
 
             </form>
