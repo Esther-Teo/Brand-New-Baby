@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 class ConnectionManager {
 
     function connect() {
