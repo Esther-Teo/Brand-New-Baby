@@ -85,7 +85,7 @@ class UserDAO {
         $sql = "UPDATE useraccount SET password_hash = :passwordHash  WHERE useremail = :useremail";
         $stmt = $conn->prepare($sql);
         
-        $useremail = $user->getUsername();
+        $useremail = $user->getUseremail();
         $passwordHash = $user->getPasswordHash();
 
         $stmt->bindParam(":useremail", $useremail, PDO::PARAM_STR);
