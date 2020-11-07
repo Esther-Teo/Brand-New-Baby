@@ -9,7 +9,6 @@
   class ListingDAO {
 
     public function getListing() {
-          $stmt->execute();			
       $connMgr = new ConnectionManager();      
       $pdo = $connMgr->connect();  
       $sql = 'SELECT username, category, item, mrt FROM beneficiarylisting';         
