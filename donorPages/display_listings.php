@@ -20,13 +20,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <script src="./listings1.js"></script>
 
     <title>Brand New Baby (Listings)</title>
-</head>
-<body onload="display_default()">
 
-    <div id="listing" style="margin-top: 20px; margin-left: 15px;">
+    <style>
+
+        .form-popup {
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        }
+
+        .form-container {
+        max-width: 500px;
+        padding: 10px;
+        background-color: white;
+        }
+
+    </style>
+    
+
+</head>
+<body>
+
+    <div id="listing" style="margin:20px auto; width:40%;">
+        <div class="form-popup" id="myForm">
+                <!-- Insert from js -->
+        </div>
         
         <?php
             # Obtain listings from ListingDAO
@@ -35,7 +57,7 @@
             $listingDAO = new ListingDAO();
             $listings = $listingDAO->getListing();
             foreach ($listings as $listing){
-                echo "<div style='border: 1px solid black; margin-bottom: 20px; width: 40%;' >
+                echo "<div style='border: 1px solid black; margin-bottom: 30px;' >
                     <ul>
                         <li style='list-style: none; margin-top: 5px;'> Name: {$listing->getName()}</li>
                         <li style='list-style: none; margin-top: 5px;'> Category: {$listing->getCategory()}</li>
@@ -43,17 +65,61 @@
                         <li style='list-style: none; margin-top: 5px;'> Nearest MRT: {$listing->getMrt()}</li>
                     </ul>
                     
-                    <div style='display: flex; justify-content: flex-end; margin-right: 10px; margin-bottom: 10px;'><input type='submit' value='Find out more &#8594;'></div>
+                    <div style='display: flex; justify-content: flex-end; margin-right: 10px; margin-bottom: 10px;'><button onclick='display_popup()' type='button' data-toggle='collapse' data-target='#myForm'>Find out more &#8594;</button></div>
                 </div>
-                ";
+                
+
+            
+        
+                
+                <script>
+                    function display_popup() {
+                    let popup_str = '';";
+                    
+                    $name = $listing->getName();
+                    $expandedlistingDAO = new ExpandedListingDAO;
+                    $expandedlisting = $expandedlistingDAO->getExpandedListing($name);
+                    
+                    echo "popup_str += `<form action='/action_page.pgp' class='form-container'>
+
+                        <label for='name'>Name:</label>
+                        <p>{$expandedlisting->getName()}</p>
+
+                        <label for='items'>Items:</label>
+                        <p>{$expandedlisting->getItem()}</p>
+
+                        <label for='quantity'>Quantity:</label>
+                        <p>{$expandedlisting->getQuantity()}</p>
+
+                        <label for='deadline'>Wanted By:</label>
+                        <p>{$expandedlisting->getWantedBy()}</p>
+
+                        <label for='mrt'>Nearest MRT:</label>
+                        <p>{$expandedlisting->getMrt()}</p>
+
+                        
+                        <label for='comments'>Comments:</label>
+                        <p>{$expandedlisting->getComments()}</p>
+
+                        <button type='submit' class='btn btn-warning btn-block'>I have item</button>
+                        <button type='submit' class='btn btn-info btn-block'>I need to purchase item</button>
+
+                        </form>
+                        `;
+
+                            var popup = document.getElementById('myForm');
+                            popup.innerHTML = popup_str;
+                        }
+                </script>";
+
+                
             }
         ?>
-        
 
     </div>
     
-
-
+    
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
