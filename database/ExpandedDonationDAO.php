@@ -29,7 +29,7 @@
       $insertOK = false;
       
       $conn = new ConnectionManager();
-      $pdo = $conn->getConnection();
+      $pdo = $conn->connect();
       
       # Get information from $donation
       $name = $donation->getName();

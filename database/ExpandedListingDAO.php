@@ -30,7 +30,7 @@
       $insertOK = false;
       
       $conn = new ConnectionManager();
-      $pdo = $conn->getConnection();
+      $pdo = $conn->connect();
       
       # Get information from $request
       $name = $request->getName();
