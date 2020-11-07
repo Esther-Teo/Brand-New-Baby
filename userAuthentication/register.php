@@ -42,7 +42,7 @@ if (isset($_SESSION["register_fail"])){
         }
 
         body {
-            background-image: url("./login_image.jpg");
+            background-image: url("http://localhost/Brand-New-Baby/images/login_image.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
