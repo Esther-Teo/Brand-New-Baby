@@ -4,9 +4,9 @@ session_start();
 
     // WRITE YOUR CODES HERE
 
-    if (isset ($_SESSION["username"])){
-        echo "<h3> Thank you ". $_SESSION["username"] . " for visiting </h3>";
-        unset($_SESSION["username"]);
+    if (isset ($_SESSION["useremail"])){
+        echo "<h3> You have successfully logged out </h3>";
+        unset($_SESSION["useremail"]);
         unset($_SESSION["errors"]);
         $_SESSION = [];
 
