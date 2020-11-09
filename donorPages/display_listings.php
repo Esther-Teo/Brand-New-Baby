@@ -28,14 +28,14 @@
         .form-popup {
         position: fixed;
         bottom: 0;
-        right: 15px;
         border: 3px solid #f1f1f1;
         z-index: 9;
         }
 
         .form-container {
         max-width: 500px;
-        padding: 10px;
+        padding: 20px;
+        justify-content: center;
         background-color: white;
         }
 
