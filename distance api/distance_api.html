@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    
+    <!-- For converting csv file to object -->
+    <script type="text/javascript" src="papaparse.min.js"></script>
+    
+    <title>Brand New Baby (Time taken to reach beneficiary)</title>
+
+</head>
+<body>
+
+        <div id="nearest_beneficiary" class="container" style="display: none">
+
+        </div>
+
+    </div>
+
+    
+    </script>
+
+    <script> 
+
+        //HARPREET'S api key 
+        var googleAPIKey = "AIzaSyACwC8JkZBWX5lvshkdXl9XvoZDI7IZzG0"; 
+       
+        var url3 = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&key=" + googleAPIKey;
+        
+        // Global variables
+        var donor_mrt = "";
+        donor_mrt = document.getElementById("donor_mrt").value;
+        //console.log(typeof donor_mrt)
+        
+
+        // !!! NEED TO ADD: X is the BENEFICIARY's mrt station name (from listing chosen) 
+        var x = "";
+        // !!! NEED TO ADD: Y is the DONOR's mrt station name (from register page)
+        var y = "";
+
+        // importing mrt csv data using papaparse 
+
+        var csv_file = "mrt_lrt_data.csv"
+        var dest_lat = "";
+        var dest_long = "";
+        var mrt_name = "";
+
+        Papa.parse(csv_file, {
+            delimiter: ",",
+            header: true, 
+            download: true,
+            complete: function(results, file) {
+
+                mrt_data = results.data
+                //console.log(mrt_data)
+
+                for (var i = 0, l = mrt_data.length; i < l; i++) {
+                    var mrt_name = mrt_data[i].station_name;
+
+                    
+                    if (mrt_name = x) {
+                        //console.log(typeof mrt_name);
+                        dest_lat = mrt_data[i].lat;
+                        //console.log(dest_lat);
+                        dest_lng = mrt_data[i].lng;
+                        //console.log(dest_lng);
+                    }
+                    
+                    if (mrt_name = y ) {
+                        //console.log("I FOUND DONOR MRT WOOO");
+                        origin_lat = mrt_data[i].lat;
+                        origin_lng = mrt_data[i].lng;
+                    }
+
+                }
+
+            }
+
+        })
+        
+
+        /* this is the function for displaying the distance and time taken for donor to reach beneficiary from origin to destination
+        */
+
+        function distance_matrix(pos) {
+ 
+            // origin is user's location 
+
+            // using donor's location's place id 
+            
+            var origin = new google.maps.LatLng(origin_lat, origin_lng);
+            
+            // destination is a random assigned destination 
+            // using dest lat lng values from beneficiary's mrt station 
+            var destination = new google.maps.LatLng(dest_lat, dest_lng); 
+
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix( 
+            {
+                origins: [origin],
+                destinations: [destination],
+
+                //default mode is driving 
+                travelMode: google.maps.TravelMode.TRANSIT,
+                unitSystem: google.maps.UnitSystem.METRIC,
+      
+                // departure time is now (tells u the amount of time taken to reach if you leave right now) and date is current date 
+                drivingOptions: {
+                    departureTime: new Date(Date.now()),  // for the time N milliseconds from now.
+
+                    // best estimate of travel time through info of historical traffic conditions 
+                    trafficModel: 'bestguess'
+                },
+
+            }, callback);
+
+            // callback function to get data from api call
+
+            function callback(response, status) {
+
+                if (status == 'OK') {
+                    var origins = response.originAddresses;
+                   // console.log(origins)
+                    var destinations = response.destinationAddresses;
+                   // console.log(destinations)
+
+                    for (var i = 0; i < origins.length; i++) {
+                    var results = response.rows[i].elements;
+                    for (var j = 0; j < results.length; j++) {
+                        var element = results[j];
+                        var distance = element.distance.text;
+                        //console.log(distance)
+                        var duration = element.duration.text;
+                       // console.log(duration)
+                        var from = origins[i];
+                        var to = destinations[j];
+                       
+                    }
+                    }
+
+                    var text_replacement = "The nearest beneficiary is " + distance + " away. You will take " + duration + " to reach the beneficiary by public transport.";
+
+                    document.getElementById("nearest_beneficiary").innerHTML = text_replacement;
+
+                    document.getElementById("nearest_beneficiary").style.display = "block";
+                }
+
+                else {
+                    alert("Error was: " + status);
+
+                }
+            }
+
+        }
+
+   </script>   
+
+   
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACwC8JkZBWX5lvshkdXl9XvoZDI7IZzG0">  
+    </script>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   
+   <script src="papaparse.min.js"></script>
+ 
+</body>
+</html>
+    
