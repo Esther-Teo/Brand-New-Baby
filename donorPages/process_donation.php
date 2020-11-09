@@ -2,7 +2,7 @@
 
     spl_autoload_register(
         function($class){
-        require_once "../database/$class.php";
+            require_once("../database/$class.php");
         }
     );
 
@@ -41,3 +41,4 @@
         echo "Donation is not added";
     }*/
 ?>
+<!--Can we just add html here and combine it with confirmation.php?-->

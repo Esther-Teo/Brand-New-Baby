@@ -1,5 +1,5 @@
 <?php
-require_once 'common.php';
+require_once('../database/common.php');
 
 // WRITE YOUR CODES HERE
 $tmp_username = '';
@@ -42,7 +42,7 @@ if (isset($_SESSION["register_fail"])){
         }
 
         body {
-            background-image: url("http://localhost/Brand-New-Baby/images/login_image.jpg");
+            background-image: url("../images/login_image.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;

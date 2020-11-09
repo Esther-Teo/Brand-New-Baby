@@ -1,5 +1,5 @@
 <?php
-require_once "common.php";
+require_once("../database/common.php");
 
     // email and name cannot be blank nor empty string
 
