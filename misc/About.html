@@ -22,27 +22,42 @@
             font-weight: bold;
         }
 
-        #mission {
-            display: flex;
+        #beginning {
+            background-image: url("../images/babyelementblue.jpg");
+            background-size: contain no-repeat;
+            background-position: center;
         }
 
-        .image {
-            text-align: left;
+        #beginning_text {
+            background: rgba(245, 245, 245, 0.5);
+            padding: 10%;
+            text-align: center;
+            /* color: #fff; */
+        }
+
+        /* .section>.inline{
+            display:inline-block;
+        } */
+        #body .image img {
+            width: 100%;
+            height: auto;
+        }
+
+        #body .image,
+        #body .text {
             width: 50%;
             height: auto;
         }
 
-        .text {
-            text-align: right;
-
+        .d-block {
+            overflow: hidden;
         }
 
-        #beginning {
-            background-image: url("../images/babyelementblue.jpg");
-            opacity: 0.5;
-            background-size: cover;
-            text-align: left;
-            padding: 10%;
+        #mission_text,
+        #value_text {
+            text-align: center;
+            padding: 5%;
+            margin-left: 2%;
         }
     </style>
 </head>
@@ -54,7 +69,7 @@
 
         <!-- Logo -->
 
-        <a class="navbar-brand" href="../misc/home.html">
+        <a class="navbar-brand" href="../misc/home.php">
 
             <img src="../images/confirmedlogo.png" width="100" height="100" alt="" loading="lazy">
         </a>
@@ -81,47 +96,59 @@
 
 
 </nav>
-<!--Header to present focus of the webpage-->
 <div>
-    <div id="header">
-        <h1>About</h1>
-    </div>
     <!--Body context to elaborate focus of the webpage-->
-    <div id="body">
-        <div id="beginning">
 
-            <h3>Our beginning</h3>
-            <p>A single parent faces a myriad of issues. For a single parent, having access to basic necessities is
-                especially important when babies are at their growing phase. However, the cost of raising babies has
-                been exponentially increasing in the recent years. The cost of raising a baby aged 0-2 in Singapore can
-                amount to a whopping $60000 due to the high costs of basic essentials. For single parents, being able to
-                afford such a large amount of money is extremely difficult. Furthermore, the Covid-19 situation has
-                exacerbated this issue as many working adults have lost their jobs or have been receiving salary cuts.
-                As such, through our website, we hope to reduce the financial burden of these single parents by
-                providing them an avenue to get free baby products easily </p>
-        </div>
-        <div id="mission">
-            <img src="../images/babysleepingwoolen.jpg" class="image">
-            <div class="overlay">
-                <div class="text">
-                    <h3>Mission</h3>
-                    <p>Brand New Baby is a website designed to connect both donors and single parents, helping parents
-                        acquire
-                        basic necessities for their children. Every child has the right to grow up healthy and we
-                        endeavor to
-                        provide them with the means to do so via aid to their parents</p>
-                </div>
+    <div id="body">
+        <div id="beginning" class="d-block">
+            <div id="beginning_text">
+                <h3>Our beginning</h3>
+                <p>A single parent faces a myriad of issues. For a single parent, having access to basic necessities is
+                    especially important when babies are at their growing phase. However, the cost of raising babies has
+                    been exponentially increasing in the recent years. The cost of raising a baby aged 0-2 in Singapore
+                    can
+                    amount to a whopping $60000 due to the high costs of basic essentials. For single parents, being
+                    able to
+                    afford such a large amount of money is extremely difficult. Furthermore, the Covid-19 situation has
+                    exacerbated this issue as many working adults have lost their jobs or have been receiving salary
+                    cuts.
+                    As such, through our website, we hope to reduce the financial burden of these single parents by
+                    providing them an avenue to get free baby products easily </p>
             </div>
         </div>
-        <div id="values">
-            <p>We believe in</p>
-            <ul>
-                <li>Compassion</li>
-                <li>Efficiency</li>
-                <li>Safety</li>
-            </ul>
+        <div class="section d-block" id="mission">
+            <!-- <div class="image inline" style="float:left"> -->
+            <img class="image d-inline" style="float:left" src="../images/smiling_baby.jpg">
+            <!-- </div> -->
+
+            <div id="mission_text" class="text inline d-inline">
+                <!-- <div> -->
+                <h3>Mission</h3>
+                <p>Brand New Baby is a website designed to connect both donors and single parents, helping parents
+                    acquire
+                    basic necessities for their children. Every child has the right to grow up healthy and we
+                    endeavor to
+                    provide them with the means to do so via aid to their parents</p>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <div class="section d-block" id="values">
+
+            <!-- <div class="image inline d-inline" id="value_image" > -->
+            <img class="image d-inline" src="../images/holding_hands.jpg" class="img" style="float:right">
+            <!-- </div> -->
+            <div class="text inline d-inline" id="value_text">
+                <p>We believe in</p>
+                <ul>
+                    <li>Compassion</li>
+                    <li>Efficiency</li>
+                    <li>Safety</li>
+                </ul>
+            </div>
         </div>
     </div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
