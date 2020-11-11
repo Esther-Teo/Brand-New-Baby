@@ -16,7 +16,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+
     <title>Brand New Baby (Home)</title>
     <!--Styling-->
     <style>
@@ -27,7 +27,8 @@
           color: #B6985B;
           font-weight: bold;
       }
-  </style>
+    </style>
+
   </head>
 
   <body>
@@ -119,9 +120,9 @@
             View Active Listings
             </button>
             <div id="display_ddm" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Hygiene</a>
-            <a class="dropdown-item" href="#">Clothes</a>
-            <a class="dropdown-item" href="#">Toys</a>
+              <a class="dropdown-item" href="#">Hygiene</a>
+              <a class="dropdown-item" href="#">Clothes</a>
+              <a class="dropdown-item" href="#">Toys</a>
             </div>
         </div>
 
@@ -148,9 +149,12 @@
 
             echo"
               <div class='card-body'>
-                <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
-                <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
-                <a href='#' class='btn btn-secondary'>Find out more &#8594;</a>
+                <form action='./display_popup.php'>
+                  <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
+                  <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
+                  <input type='hidden' name='u_name' value='{$listing->getName()}'>
+                  <input type='submit' value='Find out more &#8594;'>
+                </form>
               </div>
             </div>";
           }
@@ -159,7 +163,6 @@
     </div>
       
 
-      
 
 
     <!-- Optional JavaScript -->
