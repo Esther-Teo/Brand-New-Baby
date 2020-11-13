@@ -34,18 +34,30 @@ CREATE TABLE if not exists beneficiarylisting (
 
 
 INSERT INTO beneficiarylisting (username, mrt, category, item, quantity, itemcondition) VALUES 
-('Zack', 'Paya Lebar', 'Hygiene', 'Diapers', '2 packs',  'newCondition' ),
-('Thomas', 'Boon Lay', 'Clothing', 'Shirt for 3 month old boy', '3', 'preLoved'),
-('Wong Shi Lin','Sengkang' , 'Toys', 'Rattle toy', '5', 'preLoved'),
-('Tammy Ho', 'Bedok' , 'Hygiene', 'Baby shampoo', '2 bottles', 'newCondition');
-('Timothy', 'RedHill' , 'Clothing', 'baby pants', '2 pairs', 'preLoved');
-('Jasmine Tan', 'Ang Mo Kio', 'Toys', 'Robot toy', '1', 'preLoved')
-('Maximus Lim', 'Jurong East' , 'Clothing', 'baby pants', '2 pairs', 'preLoved');
-('Jamie Lee', 'Macpherson' , 'Toys', 'Baby puzzles', '1 set', 'preLoved');
-('Siu Lee', 'Yishun' , 'Hygiene', 'Baby bathing powder', '2 bottles', 'newCondition');
-('Jackson Teo', 'City Hall' , 'Toys', 'Superhero figurines', '4', 'newCondition');
-('Kimberly Ann', 'Choa Chu Kang' , 'Hygiene', 'Pacifier', '2', 'newCondition');
-('Hoe Hin', 'Simei' , 'Clothing', 'Baby socks', '5 pairs', 'newCondition');
-('Darryl', 'Eunos' , 'Toys', 'Dinosaur figurine', '3 or more sets', 'preLoved');
-('Wee Liang', 'Queenstown' , 'Hygiene', 'Baby Diapers', '2 packages', 'newCondition');
-('Amos Lee', 'Raffles Place' , 'Hygiene', 'Baby body wash', '6 bottles', 'newCondition');
+('Zack', 'Paya Lebar', 'hygiene', 'diapers', '2',  'newCondition' ),
+('Thomas', 'Boon Lay', 'clothing', 'male_clothing', '3', 'preLoved'),
+('Wong Shi Lin','Sengkang' , 'toys', 'softToys', '5', 'preLoved'),
+('Tammy Ho', 'Bedok' , 'hygiene', 'bib', '2', 'newCondition'),
+('Timothy', 'RedHill' , 'clothing', 'female_clothing', '2', 'preLoved'),
+('Jasmine Tan', 'Ang Mo Kio', 'toys', 'books', '1', 'preLoved'),
+('Maximus Lim', 'Jurong East' , 'clothing', 'male_clothing', '2', 'preLoved'),
+('Jamie Lee', 'Macpherson' , 'toys', 'bathToys', '1', 'preLoved'),
+('Siu Lee', 'Yishun' , 'hygiene', 'babyWipes', '2', 'newCondition'),
+('Jackson Teo', 'City Hall' , 'toys', 'softToys', '4', 'newCondition'),
+('Kimberly Ann', 'Choa Chu Kang' , 'hygiene', 'bib', '2', 'newCondition'),
+('Hoe Hin', 'Simei' , 'clothing', 'unisex_clothing', '5', 'newCondition'),
+('Darryl', 'Eunos' , 'toys', 'softToys', '3', 'preLoved'),
+('Wee Liang', 'Queenstown' , 'hygiene', 'diapers', '2', 'newCondition'),
+('Amos Lee', 'Raffles Place' , 'hygiene', 'bib', '6', 'newCondition');
+
+INSERT INTO donorlisting (username, category, item, quantity, itemcondition) VALUES
+('Hyun Bin', 'hygiene', 'babyWipes', '2', 'newCondition'),
+('Park Seo Joon', 'hygiene', 'diapers', '2', 'newCondition'),
+('Kim Seokjin', 'hygiene', 'bib', '4', 'preLoved'),
+('Kim Namjoon', 'clothing','male_clothing', '5', 'preLoved'),
+('Min Yoongi', 'clothing','female_clothing', '3', 'preLoved'),
+('Jung Hoseok', 'clothing','unisex_clothing', '4', 'newCondition'),
+('Park Jimin', 'toys','books', '2', 'preLoved'),
+('Kim Taehyung', 'toys','softToys', '2', 'newCondition'),
+('Jeon Jungkook', 'toys','bathToys', '4', 'newCondition'),
+('Kylie Jenner', 'clothing','unisex_clothing', '2', 'preLoved');
