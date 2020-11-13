@@ -19,17 +19,16 @@ session_start();
 /***
 print errors based on session variable 'errors'
 ***/
-
 function printErrors() {
-    if(isset($_SESSION['errors'])){
-        
-        echo "<ul style='color:red;'>";
-        
+    if(isset($_SESSION['errors'])){    
+        echo '<div class="error">';
+       
         foreach ($_SESSION['errors'] as $error) {
             echo $error . "</br>";
         }
-        
-        echo "</ul>";   
+         
+        echo "</div>";
+       
         unset($_SESSION['errors']);
     }
 }
