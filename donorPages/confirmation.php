@@ -25,7 +25,7 @@
                 </h2>
 
                 <p>
-                    Items: <!-- items variable -->
+                    Item: <!-- items variable -->
                 </p>
 
                 <p>

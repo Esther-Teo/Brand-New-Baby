@@ -1,25 +1,23 @@
 <?php
     class ExpandedListing{
-        private $name;
+        private $username;
         private $category;
         private $item;
         private $quantity;
-        private $wantedby;
         private $mrt;
-        private $comments;
+        private $itemcondition;
 
-        public function __construct($name, $category, $item, $quantity, $wantedby, $mrt, $comments){
-            $this->name = $name;
+        public function __construct($username, $mrt, $category, $item, $quantity, $itemcondition){
+            $this->username = $username;
+            $this->mrt = $mrt;
             $this->category = $category;
             $this->item = $item;
             $this->quantity = $quantity;
-            $this->wantedby = $wantedby;
-            $this->mrt = $mrt;
-            $this->comments = $comments;
+            $this->itemcondition = $itemcondition;
         }
 
         public function getName(){
-            return $this->name;
+            return $this->username;
         }
 
         public function getCategory(){
@@ -34,16 +32,12 @@
             return $this->quantity;
         }
 
-        public function getWantedBy() {
-            return $this->wantedby;
-        }
-
         public function getMrt(){
             return $this->mrt;
         }
 
-        public function getComments(){
-            return $this->comments;
+        public function getItemCondition(){
+            return $this->itemcondition;
         }
     }
 ?>

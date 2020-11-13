@@ -11,14 +11,14 @@
     public function getExpandedListing($name) {
           $connMgr = new ConnectionManager();      
           $pdo = $connMgr->connect();  
-          $sql = 'SELECT username, category, item, quantity, wantedby, mrt, comments FROM beneficiarylisting where username = :name';         
+          $sql = 'SELECT username, mrt, category, item, quantity, itemcondition FROM beneficiarylisting where username = :username';         
           $stmt = $pdo->prepare($sql);   
-          $stmt->bindParam(':name', $name, PDO::PARAM_STR);  
+          $stmt->bindParam(':username', $username, PDO::PARAM_STR);  
           $stmt->execute();			
           $result = null;
           $stmt->setFetchMode(PDO::FETCH_ASSOC);
           if($row = $stmt->fetch()) {
-            $result = new ExpandedListing($row['username'], $row['category'], $row['item'], $row['quantity'], $row['wantedby'], $row['mrt'], $row['comments']);
+            $result = new ExpandedListing($row['username'],  $row['mrt'], $row['category'], $row['item'], $row['quantity'], $row['itemcondition']);
           }
           $stmt = null;
           $pdo = null;
@@ -33,24 +33,22 @@
       $pdo = $conn->connect();
       
       # Get information from $request
-      $name = $request->getName();
+      $username = $request->getName();
+      $mrt = $request->getMrt();
       $category = $request->getCategory();
       $item = $request->getItem();
       $quantity = $request->getQuantity();
-      $wantedby = $request->getWantedby();
-      $mrt = $request->getMrt();
-      $comments = $request->getComments();
+      $itemcondition = $request->getItemCondition();
 
-      $sql = 'insert into beneficiarylisting (username, mrt, category, item, quantity, wantedby, comments) values (:name,:mrt,:category, :item, :quantity, :wantedby, :comments)';
+      $sql = "insert into beneficiarylisting (username, mrt, category, item, quantity, itemcondition) values (:username,:mrt,:category, :item, :quantity,  :itemcondition)";
 
       $statement = $pdo->prepare($sql);
-      $statement->bindParam(":name",$name,PDO::PARAM_STR);
+      $statement->bindParam(":username",$username,PDO::PARAM_STR);
       $statement->bindParam(":mrt",$mrt,PDO::PARAM_STR);
       $statement->bindParam(":category",$category,PDO::PARAM_STR);
       $statement->bindParam(":item", $item,PDO::PARAM_STR);
       $statement->bindParam(":quantity",$quantity,PDO::PARAM_STR);
-      $statement->bindParam(":wantedby",$wantedby,PDO::PARAM_STR);
-      $statement->bindParam(":comments",$comments,PDO::PARAM_STR);
+      $statement->bindParam(":itemcondition",$itemcondition,PDO::PARAM_STR);
       
       
       $insertOK = $statement->execute();

@@ -2,7 +2,7 @@
 
   spl_autoload_register(
     function($class){
-      require_once("../database/$class.php");
+        require_once("../database/$class.php");
       }
   );
 ?>
@@ -77,26 +77,26 @@
                     function display_popup() {
                     let popup_str = '';";
                     
-                    $name = $donation->getName();
+                    $username = $donation->getName();
                     $expandedDonationDAO = new ExpandedDonationDAO;
-                    $expandeddonation = $expandedDonationDAO->getExpandedDonation($name);
+                    $expandeddonation = $expandedDonationDAO->getExpandedDonation($username);
                     
                     echo "popup_str += `<form action='/action_page.pgp' class='form-container'>
 
-                        <label for='name'>Name:</label>
+                        <label for='username'>Name:</label>
                         <p>{$expandeddonation->getName()}</p>
 
-                        <label for='items'>Items:</label>
+                        <label for='mrt'>Nearest MRT:</label>
+                        <p>{$expandeddonation->getMrt()}</p>
+
+                        <label for='item'>Item:</label>
                         <p>{$expandeddonation->getItem()}</p>
 
                         <label for='quantity'>Quantity:</label>
                         <p>{$expandeddonation->getQuantity()}</p>
 
-                        <label for='deadline'>Item Condition:</label>
+                        <label for='itemcondition'>Item Condition:</label>
                         <p>{$expandeddonation->getItemCondition()}</p>
-
-                        <label for='mrt'>Nearest MRT:</label>
-                        <p>{$expandeddonation->getMrt()}</p>
 
                         <button type='submit' class='btn btn-info btn-block'>I want this item</button>
 

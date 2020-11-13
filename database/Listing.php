@@ -1,19 +1,19 @@
 <?php
     class Listing{
-        private $name;
+        private $username;
         private $category;
         private $item;
         private $mrt;
 
-        public function __construct($name, $category, $item, $mrt){
-            $this->name = $name;
+        public function __construct($username, $mrt, $category, $item){
+            $this->username = $username;            
+            $this->mrt = $mrt;
             $this->category = $category;
             $this->item = $item;
-            $this->mrt = $mrt;
         }
 
         public function getName(){
-            return $this->name;
+            return $this->username;
         }
 
         public function getCategory(){

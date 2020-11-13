@@ -1,5 +1,10 @@
 <?php
-  require_once "../database/common.php";
+
+  spl_autoload_register(
+    function($class){
+      require_once "../database/$class.php";
+      }
+  );
 ?>
 
 <!doctype html>
@@ -64,29 +69,33 @@
     </nav>
 
     <!-- Carousel of highly requested items -->
+
     <div id="carouselitems" class="carousel slide mb-4" data-ride="carousel" >
         <ol class="carousel-indicators">
           <li data-target="#carouselitems" data-slide-to="0" class="active"></li>
           <li data-target="#carouselitems" data-slide-to="1"></li>
           <li data-target="#carouselitems" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner" style="height: 550px;">
+        <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../images/diaper.jpg" class="d-block w-100 h-30" alt="...">
-            <div class="carousel-caption d-none d-md-block" style="position: absolute; z-index: 1; display: table; width: 100%; height: 100%; color: black;">
-              <h1 style="display: table-cell; vertical-align: middle; text-align: center;">Call for help! Make a change today!</h1>
+            <img src="../images/diaper.jpg" class="d-block w-100 h-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Highly Requested</h3>
+              <h5>Diapers</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../images/clothes.jpg" class="d-block w-100 h-30" alt="...">
-            <div class="carousel-caption d-none d-md-block" style="position: absolute; z-index: 1; display: table; width: 100%; height: 100%; color: black;">
-              <h1 style="display: table-cell; vertical-align: middle; text-align: center;">Highly requested category: <br> Clothing</h1>
+            <img src="../images/clothes.jpg" class="d-block w-100 h-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Highly Requested</h3>
+              <h5>Clothes</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../images/toy.jpg" style="opacity: 0.5;" class="d-block w-100 h-30" alt="...">
-            <div class="carousel-caption d-none d-md-block" style="position: absolute; z-index: 1; display: table; width: 100%; height: 100%; color: black;">
-            <h1 style="display: table-cell; vertical-align: middle; text-align: center;">600 people have made a change so far, what about you?</h1>
+            <img src="../images/toy.jpg" class="d-block w-100 h-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Highly Requested</h3>
+              <h5>Educational Toys</h5>
             </div>
           </div>
         </div>
@@ -110,9 +119,9 @@
             View Active Listings
             </button>
             <div id="display_ddm" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="./show_category.php?cat=Hygiene">Hygiene</a>
-              <a class="dropdown-item" href="./show_category.php?cat=Clothing">Clothing</a>
-              <a class="dropdown-item" href="./show_category.php?cat=Toys">Toys</a>
+            <a class="dropdown-item" href="#">Hygiene</a>
+            <a class="dropdown-item" href="#">Clothes</a>
+            <a class="dropdown-item" href="#">Toys</a>
             </div>
         </div>
 
@@ -139,12 +148,9 @@
 
             echo"
               <div class='card-body'>
-                <form action='./display_popup.php'>
-                  <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
-                  <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
-                  <input type='hidden' name='u_name' value='{$listing->getName()}'>
-                  <input type='submit' value='Find out more &#8594;'>
-                </form>
+                <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
+                <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
+                <a href='#' class='btn btn-secondary'>Find out more &#8594;</a>
               </div>
             </div>";
           }

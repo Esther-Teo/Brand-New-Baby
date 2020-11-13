@@ -6,7 +6,7 @@ function updateItemOption() {
     var itemName = document.getElementById("donationItem");
     var itemNameStr = 
         `<h4>What item?</h4>
-        <select name="donation_item" required>
+        <select name="donationItem" required>
             <option value="" disabled selected>Select your item</option>`;
 
     itemName.innerHTML =``;
@@ -42,4 +42,9 @@ function updateItemOption() {
         <label for="newCondition">New</label><br>
         <input type="radio" id="preLoved" name="itemCondition" value="preLoved">  
         <label for="preLoved">Pre-loved</label><br>`;
+
+};
+
+function getConfirmation(){
+
 }

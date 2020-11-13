@@ -26,7 +26,7 @@
         if ($status)
         { 
             $_SESSION["useremail"] = $useremail;
-            header("Location: ../misc/home.html");
+            header("Location: ../misc/home.php");
             return;
         }
         else

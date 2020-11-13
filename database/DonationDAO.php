@@ -11,13 +11,13 @@
     public function getDonation() {
         $connMgr = new ConnectionManager();      
         $pdo = $connMgr->connect();  
-        $sql = 'SELECT username, category, item, mrt FROM donorlisting';         
+        $sql = 'SELECT username, mrt, category, item FROM donorlisting';         
         $stmt = $pdo->prepare($sql);      
         $stmt->execute();			
         $result = [];
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         while($row = $stmt->fetch()) {
-        $result[] = new Donation($row['username'], $row['category'], $row['item'], $row['mrt']);
+        $result[] = new Donation($row['username'], $row['mrt'], $row['category'], $row['item']);
         }
         $stmt = null;
         $pdo = null;

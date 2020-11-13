@@ -1,14 +1,14 @@
 <?php
     class ExpandedDonation{
-        private $name;
+        private $username;
         private $mrt;
         private $category;
         private $item;
         private $quantity;
         private $itemcondition;
 
-        public function __construct($name, $mrt, $category, $item, $quantity, $itemcondition){
-            $this->name = $name;
+        public function __construct($username, $mrt, $category, $item, $quantity, $itemcondition){
+            $this->username = $username;
             $this->mrt = $mrt;
             $this->category = $category;
             $this->item = $item;
@@ -17,7 +17,7 @@
         }
 
         public function getName(){
-            return $this->name;
+            return $this->username;
         }
 
         public function getMrt(){

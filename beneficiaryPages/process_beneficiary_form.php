@@ -2,18 +2,20 @@
 
     spl_autoload_register(
         function($class){
-        require_once("../database/$class.php");
+            require_once("../database/$class.php");
         }
     );
 
     #Retrieve Information passed from form
-    $name = "helen"; //use session to retrieve this info
-    $category = $_POST["requestCategory"];
-    $item = $_POST["user_items"];
-    $quantity = $_POST["user_quantity"];
+    $username = "helen"; //use session to retrieve this info
     $mrt = "Serangoon"; //use session to retrieve this info
-    $wantedby = $_POST["user_deadline"];
-    $comments = $_POST["user_comments"];
+    $category = $_POST["requestCategory"];
+    $item = $_POST["requestItem"];
+    $quantity = $_POST["itemQuantity"];
+    
+    $itemcondition = $_POST["itemCondition"];
+    //$wantedby = $_POST["user_deadline"];
+    //$comments = $_POST["user_comments"];
 
     /*
     echo "$category<br>"; 
@@ -21,7 +23,7 @@
     echo "$quantity<br>";
     */
  
-    $request = new ExpandedListing($name, $category, $item, $quantity, $wantedby, $mrt, $comments);
+    $request = new ExpandedListing($username, $mrt, $category, $item, $quantity, $itemcondition);
 
     //var_dump($request);
 

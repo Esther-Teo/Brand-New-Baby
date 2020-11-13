@@ -7,21 +7,21 @@
     );
 
     #Retrieve Information passed from form
-    $name = "Mike"; //use session to retrieve this info
+    $username = "Mike"; //use session to retrieve this info
     $mrt = "Queenstown"; //use session to retrieve this info
     $category = $_POST["donationCategory"];
-    $item = $_POST["donation_item"];
+    $item = $_POST["donationItem"];
     $quantity = $_POST["itemQuantity"];
     $itemcondition = $_POST["itemCondition"];
 
-    /*
+  /*   
     echo "$category<br>"; 
     echo "$item<br>";
     echo "$quantity<br>";
     echo "$itemcondition";
     */
 
-    $donation = new ExpandedDonation($name, $mrt, $category, $item, $quantity, $itemcondition);
+    $donation = new ExpandedDonation($username, $mrt, $category, $item, $quantity, $itemcondition);
 
     #var_dump($donation);
 

@@ -58,20 +58,55 @@
             $listings = $listingDAO->getListing();
             foreach ($listings as $listing){
                 echo "<div style='border: 1px solid black; margin-bottom: 30px;' >
-                    <form action='./display_popup.php'>
-                        <ul>
-                            <li style='list-style: none; margin-top: 5px;'> Name: {$listing->getName()}</li>
-                            <input type='hidden' name='u_name' value='{$listing->getName()}'>
-                            <li style='list-style: none; margin-top: 5px;'> Category: {$listing->getCategory()}</li>
-                            <li style='list-style: none; margin-top: 5px;'> Item: {$listing->getItem()}</li>
-                            <li style='list-style: none; margin-top: 5px;'> Nearest MRT: {$listing->getMrt()}</li>
-                        </ul>
-
-                        <div style='display: flex; justify-content: flex-end; margin-right: 10px; margin-bottom: 10px;'><input type='submit' value='Find out more &#8594;'></div>
-                    </form>
-
+                    <ul>
+                        <li style='list-style: none; margin-top: 5px;'> Name: {$listing->getName()}</li>
+                        <li style='list-style: none; margin-top: 5px;'> Category: {$listing->getCategory()}</li>
+                        <li style='list-style: none; margin-top: 5px;'> Item: {$listing->getItem()}</li>
+                        <li style='list-style: none; margin-top: 5px;'> Nearest MRT: {$listing->getMrt()}</li>
+                    </ul>
                     
-                </div>";
+                    <div style='display: flex; justify-content: flex-end; margin-right: 10px; margin-bottom: 10px;'><button onclick='display_popup()' type='button' data-toggle='collapse' data-target='#myForm'>Find out more &#8594;</button></div>
+                </div>
+                
+
+            
+        
+                
+                <script>
+                    function display_popup() {
+                    let popup_str = '';";
+                    
+                    $username = $listing->getName();
+                    $expandedlistingDAO = new ExpandedListingDAO;
+                    $expandedlisting = $expandedlistingDAO->getExpandedListing($username);
+                    
+                    echo "popup_str += `<form action='/action_page.pgp' class='form-container'>
+
+                        <label for='username'>Name:</label>
+                        <p>{$expandedlisting->getName()}</p>
+
+                        <label for='mrt'>Nearest MRT:</label>
+                        <p>{$expandedlisting->getMrt()}</p>
+
+                        <label for='item'>Item:</label>
+                        <p>{$expandedlisting->getItem()}</p>
+
+                        <label for='quantity'>Quantity:</label>
+                        <p>{$expandedlisting->getQuantity()}</p>
+                        
+                        <label for='itemcondition'>Item Condition:</label>
+                        <p>{$expandedlisting->getItemCondition()}</p>
+
+                        <button type='submit' class='btn btn-warning btn-block'>I have item</button>
+                        <button type='submit' class='btn btn-info btn-block'>I need to purchase item</button>
+
+                        </form>
+                        `;
+
+                            var popup = document.getElementById('myForm');
+                            popup.innerHTML = popup_str;
+                        }
+                </script>";
 
                 
             }
