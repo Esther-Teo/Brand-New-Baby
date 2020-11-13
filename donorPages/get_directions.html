@@ -29,15 +29,13 @@
         width: 500px;
         margin: 150px auto;
         font-size: 15px;
-
-    }
-
-    #confirmation form {
         margin-bottom: 25px;
         background: #fff8f3; 
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         padding: 30px;
+
     }
+
     .h2 {
         margin: 25px;
         text-align: center;
@@ -47,11 +45,6 @@
     label {
         font-size:17px;
     }
-
-    #row2 {
-        vertical-align: middle;
-        text-align: center;
-    }
        
         
 </style>
@@ -60,36 +53,42 @@
 
         <div class="container" id = "confirmation"> 
 
-                <form>
+            <form>
 
-                    <h2 >
-                        Confirmation
-                    </h2>
+                <h2 >
+                    Confirmation
+                </h2>
 
-                    <div class="form-group">
-                        <label for="donor_address">Please Confirm/ Enter Your Address: </label>
-                        <input type="text" class="form-control" id="donor_address">
-                    </div>
+                <div class="form-group">
+                    <label for="donor_address">Please Confirm/ Enter Your Address: </label>
+                    <input type="text" class="form-control" id="donor_address">
+                </div>
 
-                    <div class = "form-group">
-                        <label for="donor_address">Beneficiary's Nearest MRT Station: </label>
-                        <input type="text" class="form-control" value= "Jurong East" id="beneficiary_address">
-                    </div>
+                <div class = "form-group">
+                    <label for="donor_address">Beneficiary's Nearest MRT Station: </label>
+                    <input type="text" class="form-control" value= "Jurong East" id="beneficiary_address">
+                </div>
 
-                    <div class = "form-group">
+                <div class = "form-group">
 
-                        <button type="button" id="loc_button" class="btn btn-primary  btn-block" onclick="redirect_user()">Get Directions</button>
-    
-                    </div>
+                    <button type="button" id="loc_button" class="btn btn-primary  btn-block" onclick="redirect_user()">Get Directions</button>
 
-                    <div class = "container" id="row2">
+                </div>
 
-                        <button type="button" id="back_button" class="btn btn-secondary" onclick="location.href='../donorPages/display_listings.php'">Back</button>
-                        <button type="button" id="confirm_button" class="btn btn-danger" onclick="location.href='../misc/home.php'">Confirm</button>
-    
-                    </div>
 
-                </form>
+            </form>
+
+            <div class="row">
+
+                <div class="col">
+                    <button type="button" id="back_button" class="btn btn-secondary form-control btn-block" onclick="location.href='../donorPages/display_listings.php'">Back</button>
+                </div>
+      
+                <div class="col">
+                    <button type="button" id="confirm_button" class="btn btn-danger form-control btn-block" onclick="location.href='../misc/home.php'">Confirm</button>
+                </div>                  
+
+            </div>
 
         
         </div>
