@@ -21,7 +21,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
-    <title>BNB Pop up</title>
+    <title>Brand New Baby (Pop up)</title>
+
+    <style>
+        body {
+            background-image: url("../images/popup.jpg");
+        }
+
+        .listing {
+            background-color: white;
+            opacity: 0.9;
+            padding: 20px;
+        }
+        
+    </style>
+
 </head>
 <body>
     <div class="container" style="padding: 20px;">
@@ -31,7 +45,7 @@
             $expandedlistingDAO = new ExpandedListingDAO;
             $expandedlisting = $expandedlistingDAO->getExpandedListing($uname);
             
-            echo "<form class='form-container'>
+            echo "<form class='form-container listing'>
 
                 <label for='name'>Name:</label>
                 <p>{$expandedlisting->getName()}</p>

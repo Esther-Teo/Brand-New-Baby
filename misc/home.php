@@ -1,10 +1,5 @@
 <?php
-
-  spl_autoload_register(
-    function($class){
-      require_once "../database/$class.php";
-      }
-  );
+  require_once "../database/common.php";
 ?>
 
 <!doctype html>
@@ -115,9 +110,9 @@
             View Active Listings
             </button>
             <div id="display_ddm" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Hygiene</a>
-            <a class="dropdown-item" href="#">Clothes</a>
-            <a class="dropdown-item" href="#">Toys</a>
+              <a class="dropdown-item" href="./show_category.php?cat=Hygiene">Hygiene</a>
+              <a class="dropdown-item" href="./show_category.php?cat=Clothing">Clothing</a>
+              <a class="dropdown-item" href="./show_category.php?cat=Toys">Toys</a>
             </div>
         </div>
 
@@ -144,9 +139,12 @@
 
             echo"
               <div class='card-body'>
-                <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
-                <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
-                <a href='#' class='btn btn-secondary'>Find out more &#8594;</a>
+                <form action='./display_popup.php'>
+                  <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
+                  <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
+                  <input type='hidden' name='u_name' value='{$listing->getName()}'>
+                  <input type='submit' value='Find out more &#8594;'>
+                </form>
               </div>
             </div>";
           }
