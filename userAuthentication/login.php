@@ -56,6 +56,7 @@
         .login-container form {
             margin-bottom: 25px;
             background: whitesmoke; 
+            background-image: url('../images/login_container_image.jpg');
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             padding: 30px;
         }
@@ -70,6 +71,62 @@
         .btn {        
             font-size: 15px;
             font-weight: bold;
+        }
+        .error {
+            border: 1px solid;
+            margin: 10px 0px;
+			padding: 15px 10px 15px 10px;
+			/* background-repeat: no-repeat; */
+            background-position: 10px center;
+            text-align: center;
+            color: #D8000C;
+            background-color: #FFBABA;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            
+        }
+
+        .middle{
+            position: absolute; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            }
+        .btn{
+            position: relative;
+            display: block;
+            color: black;
+            font-size: 14px;
+            font-family: "arial";
+            text-decoration: none;
+            margin: 30px 0;
+            border: 1px solid black;
+            background-color: #D3D3D3;
+            padding: 14px 60px;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: 1s all ease;
+            }
+        .btn::before{
+            background: #dabfde;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: -1;
+            transition: all 0.6s ease;
+        }
+
+        .btn1::before{
+            width: 0%;
+            height: 100%;
+        }
+
+        .btn1:hover::before{
+            width: 100%;
         }
         </style>
 
@@ -96,10 +153,10 @@
                     
                 </div>
 
-                <div class = "form-group">
+               <div class="form-group">
 
-                    <button type="submit" class="btn btn-danger btn-block" name="btn-login">Log in</button>
-
+                <button type="submit" class="middle btn btn1" name="btn-login">Login</button>
+                   
                 </div>
 
                 <div class="clearfix">
