@@ -11,14 +11,14 @@
     public function getExpandedDonation($name) {
           $connMgr = new ConnectionManager();      
           $pdo = $connMgr->connect();  
-          $sql = 'SELECT username, mrt, category, item, quantity, itemcondition FROM donorlisting where username = :name';         
+          $sql = 'SELECT username, category, item, quantity, itemcondition FROM donorlisting where username = :name';         
           $stmt = $pdo->prepare($sql);   
           $stmt->bindParam(':username', $username, PDO::PARAM_STR);  
           $stmt->execute();			
           $result = null;
           $stmt->setFetchMode(PDO::FETCH_ASSOC);
           if($row = $stmt->fetch()) {
-            $result = new ExpandedDonation($row['username'], $row['mrt'], $row['category'], $row['item'], $row['quantity'], $row['itemcondition']);
+            $result = new ExpandedDonation($row['username'], $row['category'], $row['item'], $row['quantity'], $row['itemcondition']);
           }
           $stmt = null;
           $pdo = null;
@@ -33,17 +33,17 @@
       
       # Get information from $donation
       $username = $donation->getName();
-      $mrt = $donation->getMrt();
+     /*  $mrt = $donation->getMrt(); */
       $category = $donation->getCategory();
       $item = $donation->getItem();
       $quantity = $donation->getQuantity();
       $itemcondition = $donation->getItemCondition();
 
-      $sql = 'insert into donorlisting (username, mrt, category, item, quantity, itemcondition) values (:username,:mrt,:category, :item, :quantity, :itemcondition)';
+      $sql = 'insert into donorlisting (username, category, item, quantity, itemcondition) values (:username,:category, :item, :quantity, :itemcondition)';
 
       $statement = $pdo->prepare($sql);
       $statement->bindParam(":username",$username,PDO::PARAM_STR);
-      $statement->bindParam(":mrt",$mrt,PDO::PARAM_STR);
+      /* $statement->bindParam(":mrt",$mrt,PDO::PARAM_STR); */
       $statement->bindParam(":category",$category,PDO::PARAM_STR);
       $statement->bindParam(":item", $item,PDO::PARAM_STR);
       $statement->bindParam(":quantity",$quantity,PDO::PARAM_STR);

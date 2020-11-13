@@ -3,11 +3,11 @@
         private $username;
         private $category;
         private $item;
-        private $mrt;
+  /*       private $mrt; */
 
         public function __construct($username, $mrt, $category, $item){
             $this->username = $username;            
-            $this->mrt = $mrt;
+            /* $this->mrt = $mrt; */
             $this->category = $category;
             $this->item = $item;
 
@@ -25,8 +25,8 @@
             return $this->item;
         }
 
-        public function getMrt(){
+        /* public function getMrt(){
             return $this->mrt;
-        }
+        } */
     }
 ?>
