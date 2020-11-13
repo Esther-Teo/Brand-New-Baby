@@ -85,7 +85,7 @@
                 </div>
       
                 <div class="col">
-                    <button type="button" id="confirm_button" class="btn btn-danger btn-block" onclick="location.href='../misc/home.php'">Confirm</button>
+                    <button type="button" id="confirm_button" class="btn btn-danger btn-block" onclick="get_confirmation()" >Confirm</button>
                 </div>                  
 
             </div>
@@ -95,6 +95,18 @@
 
 
     <script>
+
+        // Confirmation function JS pop-up
+
+        function get_confirmation() {
+
+            var return_val = confirm("Do you want to confirm?")
+
+            if (return_val == true) {
+                window.location.href = "../misc/home.php";
+            }
+
+        }
 
         // API to get user's current location
 
