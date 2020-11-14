@@ -7,7 +7,7 @@
         private $quantity;
         private $itemcondition;
 
-        public function __construct($username, $mrt, $category, $item, $quantity, $itemcondition){
+        public function __construct($username, $category, $item, $quantity, $itemcondition){
             $this->username = $username;
             /* $this->mrt = $mrt; */
             $this->category = $category;

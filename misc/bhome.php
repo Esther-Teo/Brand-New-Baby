@@ -53,7 +53,7 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="menu">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="../beneficiaryPages/beneficiaryform.html">Send my Request</a></a>
+                    <a class="nav-item nav-link" href="../beneficiaryPages/beneficiaryform.php">Send my Request</a></a>
                     <a class="nav-item nav-link" href="../misc/FAQ.html" >FAQ</a>
                     <a class="nav-item nav-link" href="../misc/Contact_Us.html" >Contact Us</a>
                     <a class="nav-item nav-link" href="../misc/About.html" >About</a>
@@ -115,9 +115,9 @@
             View Active Listings
             </button>
             <div id="display_ddm" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Hygiene</a>
-            <a class="dropdown-item" href="#">Clothes</a>
-            <a class="dropdown-item" href="#">Toys</a>
+            <a class="dropdown-item" href="./show_bcategory.php?cat=hygiene">Hygiene</a>
+            <a class="dropdown-item" href="./show_bcategory.php?cat=clothing">Clothing</a>
+            <a class="dropdown-item" href="./show_bcategory.php?cat=toys">Toys</a>
             </div>
         </div>
 
@@ -127,26 +127,29 @@
     <!-- Active Listings Card -->
     <div class="card-columns mx-5">
       <?php
-          $listingDAO = new ListingDAO();
-          $listings = $listingDAO->getListing();
+          $donationDAO = new DonationDAO();
+          $listings = $donationDAO->getDonation();
           foreach ($listings as $listing){
             echo "<div class='card border-secondary mb-3'>";
-              if ($listing->getCategory() == 'Clothing') {
+            if ($listing->getCategory() == 'clothing') {
                 echo "<img class='card-img-top' src='../images/cardclothes.jpg' alt='Card image cap'>";
               }
-              elseif ($listing->getCategory() == 'Toys') {
+              elseif ($listing->getCategory() == 'toys') {
                 echo "<img class='card-img-top' src='../images/cardtoys.jpg' alt='Card image cap'>";
               }
 
-              elseif ($listing->getCategory() == 'Hygiene') {
+              elseif ($listing->getCategory() == 'hygiene') {
                 echo "<img class='card-img-top' src='../images/cardhygiene.jpg' alt='Card image cap'>";
               }
 
             echo"
               <div class='card-body'>
-                <h5 class='card-title'>Category: {$listing->getCategory()}</h5>
-                <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
-                <a href='#' class='btn btn-secondary'>Find out more &#8594;</a>
+                <form action='./display_bpopup.php'>
+                  <h5 class='card-title'>Category: "; echo ucfirst($listing->getCategory()); echo"</h5>
+                  <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br></p>
+                  <input type='hidden' name='u_name' value='{$listing->getName()}'>
+                  <input type='submit' value='Find out more &#8594;'>
+                </form>
               </div>
             </div>";
           }

@@ -26,7 +26,13 @@
         if ($status)
         { 
             $_SESSION["useremail"] = $useremail;
-            header("Location: ../misc/home.php");
+            if ($user->getAcctype() == 'donor'){
+                header("Location: ../misc/home.php");
+            }
+            elseif ($user->getAcctype() == 'beneficiary'){
+                header("Location: ../misc/bhome.php");
+            }
+            
             return;
         }
         else

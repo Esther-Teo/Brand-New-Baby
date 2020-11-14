@@ -13,7 +13,7 @@
           $pdo = $connMgr->connect();  
           $sql = 'SELECT username, category, item, quantity, itemcondition FROM donorlisting where username = :name';         
           $stmt = $pdo->prepare($sql);   
-          $stmt->bindParam(':username', $username, PDO::PARAM_STR);  
+          $stmt->bindParam(':name', $name, PDO::PARAM_STR);  
           $stmt->execute();			
           $result = null;
           $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -33,7 +33,6 @@
       
       # Get information from $donation
       $username = $donation->getName();
-     /*  $mrt = $donation->getMrt(); */
       $category = $donation->getCategory();
       $item = $donation->getItem();
       $quantity = $donation->getQuantity();
@@ -43,7 +42,6 @@
 
       $statement = $pdo->prepare($sql);
       $statement->bindParam(":username",$username,PDO::PARAM_STR);
-      /* $statement->bindParam(":mrt",$mrt,PDO::PARAM_STR); */
       $statement->bindParam(":category",$category,PDO::PARAM_STR);
       $statement->bindParam(":item", $item,PDO::PARAM_STR);
       $statement->bindParam(":quantity",$quantity,PDO::PARAM_STR);

@@ -5,7 +5,7 @@
         private $item;
   /*       private $mrt; */
 
-        public function __construct($username, $mrt, $category, $item){
+        public function __construct($username, $category, $item){
             $this->username = $username;            
             /* $this->mrt = $mrt; */
             $this->category = $category;

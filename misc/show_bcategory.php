@@ -38,8 +38,8 @@
         //var_dump($_GET);
         $category = $_GET["cat"];
 
-        $dao = new ListingDAO;
-        $listings = $dao->getListingByCat($category);
+        $dao = new DonationDAO;
+        $listings = $dao->getDonationByCat($category);
         $count = count($listings);
         echo "<div class='container text-center p-3 mt-3 heading'> <h2>Number of listings under {$category}: {$count}</h2></div>";
         echo "<br>";
@@ -61,9 +61,9 @@
 
             echo"
             <div class='card-body'>
-                <form action='./display_popup.php'>
+                <form action='./display_bpopup.php'>
                     <h5 class='card-title'>Category: "; echo ucfirst($listing->getCategory()); echo"</h5>
-                    <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> Nearest MRT: {$listing->getMrt()}</p>
+                    <p class='card-text'>Name: {$listing->getName()}<br>Item: {$listing->getItem()}<br> </p>
                     <input type='hidden' name='u_name' value='{$listing->getName()}'>
                     <input type='submit' value='Find out more &#8594;'>
                 </form>

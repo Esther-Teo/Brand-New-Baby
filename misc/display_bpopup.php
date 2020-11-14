@@ -42,15 +42,15 @@
         <?php
             //var_dump($_GET);
             $uname = $_GET["u_name"];
-            $expandedlistingDAO = new ExpandedListingDAO;
-            $expandedlisting = $expandedlistingDAO->getExpandedListing($uname);
+            $expandedonationDAO = new ExpandedDonationDAO;
+            $expandedlisting = $expandedonationDAO->getExpandedDonation($uname);
             
             echo "<form class='form-container listing'>
 
                 <label for='name'>Name:</label>
                 <p>{$expandedlisting->getName()}</p>
 
-                <label for='category'>Category:</label>
+                <label for='comments'>Category:</label>
                 <p>{$expandedlisting->getCategory()}</p>
 
                 <label for='items'>Items:</label>
@@ -59,18 +59,21 @@
                 <label for='quantity'>Quantity:</label>
                 <p>{$expandedlisting->getQuantity()}</p>
 
-                <label for='condition'>Item Condition:</label>
+                <label for='deadline'>Item Condition:</label>
                 <p>{$expandedlisting->getItemCondition()}</p>
 
-                <label for='mrt'>Nearest MRT:</label>
-                <p>{$expandedlisting->getMrt()}</p>
 
 
-                <button type='submit' class='btn btn-warning btn-block'>I have item</button>
-                <button type='submit' class='btn btn-info btn-block'>I need to purchase item</button>
+                <button type='button' class='btn btn-warning btn-block' onclick='popup()'>Accept Offer</button>
 
                 </form>";
         ?>
     </div>
+
+    <script>
+        function popup() {
+            alert("You can contact the donor at: 99388478 ")
+        }
+    </script>
 </body>
 </html>
