@@ -67,7 +67,7 @@
 
 
                 <button class='btn btn-warning btn-block' onclick='location.href=`../donorPages/get_directions.php?mrt={$expandedlisting->getMRT()}&u_name={$expandedlisting->getName()}`'>I have item</button>
-                <button class='btn btn-info btn-block' onclick='location.href=`../donorPages/productlinkpage.php?item={$expandedlisting->getItem()}`'>I need to purchase item</button>
+                <button class='btn btn-info btn-block' onclick='location.href=`../donorPages/productlinkpage.php?item={$expandedlisting->getItem()}&u_name={$expandedlisting->getName()}`'>I need to purchase item</button>
 
                 </div>";
         ?>
