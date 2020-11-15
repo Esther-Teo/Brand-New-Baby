@@ -48,12 +48,10 @@ function updateItemOption() {
 function getConfirmation() {
     //confirmed returns a boolean. True if user clicks ok and False if user clicks cancel
     var confirmed = confirm('Are you sure you want to submit this form?');
-    alert(confirmed);
     if(confirmed ===false){
          window.location.href='../misc/home.php';
     }
     else {
-        console.log("working");
         //var ajax = new XMLHttpRequest();
         $(document).ready(function () {
             $("form").submit(function (e) {
