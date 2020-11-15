@@ -48,32 +48,35 @@ function updateItemOption() {
 function getConfirmation() {
     //confirmed returns a boolean. True if user clicks ok and False if user clicks cancel
     var confirmed = confirm('Are you sure you want to submit this form?');
-    if (confirmed == true) {
-        console.log("working");
+    if(confirmed ===false){
+         window.location.href='../misc/bhome.php';
+    }
+    else {
         //var ajax = new XMLHttpRequest();
         $(document).ready(function () {
-                $("form").submit(function (e) {
-                    e.preventDefault();
-                    $.post(
-                        'process_beneficiary_form.php', {
-                            category: $("#requestCategory").val(),
-                            item: $("#requestItem").val(),
-                            quantity: $("#itemQuantity").val(),
-                            itemcondition: $("#itemCondition").val()
-                        },
-                        function (result) {
-                            if (result == "success") {
-                                $("#result").html("success");
-                            } else {
-                                $("#result").html("failed");
-                            }
+            $("form").submit(function (e) {
+                e.preventDefault();
+                $.post(
+                    'process_beneficiary_form.php', {
+                        category: $("#requestCategory").val(),
+                        item: $("#requestItem").val(),
+                        quantity: $("#itemQuantity").val(),
+                        itemcondition: $("#itemCondition").val()
+                    },
+                    function (result) {
+                        if (result == "success") {
+                            $("#result").html("success");
+                        } else {
+                            $("#result").html("failed");
                         }
-                    );
-                });
-            }
-        }
-        
-        console.log("hi");
+                    }
+                );
+            });
 
-    };
-}
+        });
+
+    
+      
+        
+    }
+} 
