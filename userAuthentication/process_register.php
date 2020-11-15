@@ -1,7 +1,6 @@
 <?php
 
 require_once("../database/common.php");
-/* require_once ("../distance api/mrt_lrt_data.csv"); */
 
 $errors = [];
 
@@ -17,31 +16,22 @@ if ( strlen($useremail) == 0 || !strstr($useremail, "@")) {
     $errors[] = "Please enter a valid email address.";
 }
 
+
+$mobilenumber = strval($mobilenumber);
+
 $mobilenumber = $_POST["user_number"]; 
-if ( strlen($mobilenumber) == 0 ) {
+if ( strlen($mobilenumber) != 8 ) {
     $errors[] = "Please enter a valid phone number.";
 }
 
-$password = $_POST["password"]; 
-
-if ( strlen($password) < 9){
-    if ( strlen($password) ==0){
-        $errors[] = "Password cannot be empty nor blank.";
-    }else{
-        $errors[] = "Password must contain at least 9 characters";
-    }
+elseif ($mobilenumber[0] != '8' || $mobilenumber[0] != '9') {
+    $errors[] = "Please enter a valid phone number.";
+}
     
+$password = $_POST["password"]; 
+if ( strlen($password) == 0 ) {
+    $errors[] = "Password cannot be empty nor blank.";
 }
-if((preg_match('/[A-Z]/', $password)!==1 )){
-    $errors[] = "Password must contain at least one uppercase letter.";
-}
-if((preg_match('/[a-z]/', $password)!==1 )){
-    $errors[] = "Password must contain at least one lowercase letter.";
-}
-if((preg_match('/[1-9]/', $password)!==1 )){
-    $errors[] = "Password must contain at least one number.";
-}
-
 
 $confirm_password = $_POST["confirmPassword"];
 
@@ -51,15 +41,16 @@ if ($password != $confirm_password){
 }
 
 $mrt = $_POST["user_address"]; 
-/* $file = file_get_contents('../distance api/mrt_lrt_data.csv'); */
-
-/* if (strpos($file, $mrt) === false) {
-   // Found it
-   $errors[] = "Nearest MRT cannot be empty nor blank.";
-} */
+$mrt = strtolower($mrt);
+$mrt = str_replace(" ", "", $mrt);
+$mrt_list = ["jurongeast", "bukitbatok", "bukitgombak", "choachukang", "yewtee", "kranji", "marsiling", "woodlands", "admiralty", "sembawang", "canberra", "yishun", "khatib", "yiochukang", "angmokio", "bishan", "braddell", "toapayoh", "novena", "newton", "orchard", "somerset", "dhobyghaut", "cityhall", "rafflesplace", "marinabay", "marinasouthpier", "pasirris", "tampines", "simei", "tanahmerah", "bedok", "kembangan", "eunos", "payalebar", "aljunied", "kallang", "lavender", "bugis", "tanjongpagar", "outrampark", "tiongbahru", "redhill", "queenstown", "commonwealth", "buonavista", "dover", "clementi", "chinesegarden", "lakeside", "boonlay", "pioneer", "jookoon", "gulcircle", "tuascrescent", "tuaswestroad", "tuaslink", "expo", "changiairport", "habourfront", "chinatown", "clarkequay", "littleindia", "farrerpark", "boonkeng", "potongpasir", "woodleigh", "serangoon", "kovan", "hougang", "buangkok", "sengkang", "punggol", "brasbasah", "esplanade", "promenade", "nicollhighway", "stadium", "mountbatten", "dakota", "macpherson", "taiseng", "bartley", "lorongchuan", "marymount", "caldecott", "botanicgardens", "farrerroad", "hollandvillage", "onenorth", "one-north", "kentridge", "hawparvilla", "pasirpanjang", "labradorpark", "telokblangah", "bayfront", "bukitpanjang", "cashew", "hillview", "beautyworld", "kingalbertpark", "sixthavenue", "tankahkee", "stevens", "rochor", "downtown", "telokayer", "fortcanning", "bencoolen", "jalanbesar", "geylangbahru", "bendemeer", "mattar", "ubi", "kakibukit", "bedoknorth", "bedokreservoir", "tampineswest", "tampines", "tampineseast", "upperchangi", "woodlandsnorth", "woodlandssouth"];
 if ( strlen($mrt) == 0 ) {
     $errors[] = "Nearest MRT cannot be empty nor blank.";
-} 
+}
+
+elseif (!in_array($mrt, $mrt_list)) {
+    $errors[] = "Enter a valid nearest MRT station.";
+}
 
 //elseif() 
 
