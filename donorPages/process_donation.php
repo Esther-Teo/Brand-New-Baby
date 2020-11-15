@@ -8,6 +8,7 @@
 
     #Retrieve Information passed from form
     $username = "Mike"; //use session to retrieve this info
+    $mrt = "Queenstown"; //use session to retrieve this info
     $category = $_POST["donationCategory"];
     $item = $_POST["donationItem"];
     $quantity = $_POST["itemQuantity"];
@@ -20,7 +21,7 @@
     echo "$itemcondition";
     */
 
-    $donation = new ExpandedDonation($username, $category, $item, $quantity, $itemcondition);
+    $donation = new ExpandedDonation($username, $mrt, $category, $item, $quantity, $itemcondition);
 
     #var_dump($donation);
 
@@ -30,7 +31,7 @@
 
     $dao->add($donation);
     #$insertOK = $dao->add($donation);
-
+    header("Location: ../misc/home.php");
     
     /*
     if ($insertOK){

@@ -29,13 +29,11 @@
             background-size: cover;
         }
 
-        .form-control, .btn {
+        .form-control,
+        .btn {
             min-height: 38px;
             border-radius: 2px;
         }
-
-
-
     </style>
 </head>
 
@@ -68,6 +66,42 @@
             </div>
         </form>
     </div>
+    <!-- <script>
+        $(document).ready(function () {
+            $("form").submit(function (e) {
+                e.preventDefault();
+                var confirmed = confirm('Are you sure you want to submit this form?');
+                if (confirmed === true) {
+
+
+                    
+                    $.post(
+                        'process_donation.php', {
+                            category: $("#donationCategory").val(),
+                            item: $("#donationItem").val(),
+                            quantity: $("#itemQuantity").val(),
+                            itemcondition: $("#itemCondition").val()
+                        },
+                        function (result) {
+                            if (result == "success") {
+                                $("#result").html("success");
+                            } else {
+                                $("#result").html("failed");
+                            }
+                        }
+                    );
+                } else {
+                    window.history.back();
+                }
+            });
+
+        })
+
+
+
+
+    
+    </script> -->
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
