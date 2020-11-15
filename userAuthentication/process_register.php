@@ -29,8 +29,21 @@ if ( strlen($mobilenumber) != 8 ) {
 // }
     
 $password = $_POST["password"]; 
-if ( strlen($password) == 0 ) {
-    $errors[] = "Password cannot be empty nor blank.";
+if ( strlen($password) < 9){
+    if ( strlen($password) ==0){
+        $errors[] = "Password cannot be empty nor blank.";
+    }else{
+        $errors[] = "Password must contain at least 9 characters";
+    }
+}
+if((preg_match('/[A-Z]/', $password)!==1 )){
+    $errors[] = "Password must contain at least one uppercase letter.";
+}
+if((preg_match('/[a-z]/', $password)!==1 )){
+    $errors[] = "Password must contain at least one lowercase letter.";
+}	
+if((preg_match('/[1-9]/', $password)!==1 )){
+    $errors[] = "Password must contain at least one number.";
 }
 
 $confirm_password = $_POST["confirmPassword"];
