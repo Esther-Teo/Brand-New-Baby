@@ -33,7 +33,7 @@
 
     $dao->add($request);
     //$insertOK = $dao->add($request);
-
+    header("Location: ../misc/bhome.php");
     
     /* 
     if ($insertOK){
