@@ -1,6 +1,7 @@
 <?php
 
 require_once("../database/common.php");
+/* require_once ("../distance api/mrt_lrt_data.csv"); */
 
 $errors = [];
 
@@ -22,9 +23,25 @@ if ( strlen($mobilenumber) == 0 ) {
 }
 
 $password = $_POST["password"]; 
-if ( strlen($password) == 0 ) {
-    $errors[] = "Password cannot be empty nor blank.";
+
+if ( strlen($password) < 9){
+    if ( strlen($password) ==0){
+        $errors[] = "Password cannot be empty nor blank.";
+    }else{
+        $errors[] = "Password must contain at least 9 characters";
+    }
+    
 }
+if((preg_match('/[A-Z]/', $password)!==1 )){
+    $errors[] = "Password must contain at least one uppercase letter.";
+}
+if((preg_match('/[a-z]/', $password)!==1 )){
+    $errors[] = "Password must contain at least one lowercase letter.";
+}
+if((preg_match('/[1-9]/', $password)!==1 )){
+    $errors[] = "Password must contain at least one number.";
+}
+
 
 $confirm_password = $_POST["confirmPassword"];
 
@@ -34,9 +51,15 @@ if ($password != $confirm_password){
 }
 
 $mrt = $_POST["user_address"]; 
+/* $file = file_get_contents('../distance api/mrt_lrt_data.csv'); */
+
+/* if (strpos($file, $mrt) === false) {
+   // Found it
+   $errors[] = "Nearest MRT cannot be empty nor blank.";
+} */
 if ( strlen($mrt) == 0 ) {
     $errors[] = "Nearest MRT cannot be empty nor blank.";
-}
+} 
 
 //elseif() 
 
