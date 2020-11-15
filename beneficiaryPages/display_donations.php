@@ -63,7 +63,7 @@
                         <li style='list-style: none; margin-top: 5px;'> Name: {$donation->getName()}</li>
                         <li style='list-style: none; margin-top: 5px;'> Category: {$donation->getCategory()}</li>
                         <li style='list-style: none; margin-top: 5px;'> Item: {$donation->getItem()}</li>
-                        <li style='list-style: none; margin-top: 5px;'> Nearest MRT: {$donation->getMrt()}</li>
+                        
                     </ul>
                     
                     <div style='display: flex; justify-content: flex-end; margin-right: 10px; margin-bottom: 10px;'><button onclick='display_popup()' type='button' data-toggle='collapse' data-target='#myForm'>Find out more &#8594;</button></div>
@@ -86,8 +86,6 @@
                         <label for='username'>Name:</label>
                         <p>{$expandeddonation->getName()}</p>
 
-                        <label for='mrt'>Nearest MRT:</label>
-                        <p>{$expandeddonation->getMrt()}</p>
 
                         <label for='item'>Item:</label>
                         <p>{$expandeddonation->getItem()}</p>
