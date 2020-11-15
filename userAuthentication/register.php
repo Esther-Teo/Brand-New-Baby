@@ -175,7 +175,7 @@ if (isset($_SESSION["register_fail"])){
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_address" placeholder = "Address" class="form-control" />
+                    <input type="text" name="user_address" placeholder = "Nearest MRT Station" class="form-control" />
                     
                 </div>
 
