@@ -152,7 +152,7 @@ if (isset($_SESSION["register_fail"])){
 
                 <div class = "form-group">
 
-                    <input type="text" name="user_email" placeholder = "Email Address" class="form-control" />
+                    <input type="email" name="user_email" placeholder = "Email Address" class="form-control" />
                     
                 </div>
 
