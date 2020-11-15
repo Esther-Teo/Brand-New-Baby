@@ -27,6 +27,10 @@
           color: #B6985B;
           font-weight: bold;
       }
+      .carousel-caption>h1{
+          color:black;
+      }
+      
   </style>
   </head>
 
@@ -68,32 +72,32 @@
 
     </nav>
 
-    <!-- Carousel of highly requested items -->
+    <!-- Carousel of highly requested items -->    
     <div id="carouselitems" class="carousel slide mb-4" data-ride="carousel" >
         <ol class="carousel-indicators">
           <li data-target="#carouselitems" data-slide-to="0" class="active"></li>
           <li data-target="#carouselitems" data-slide-to="1"></li>
           <li data-target="#carouselitems" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner" style="height: 550px;">
-          <div class="carousel-item active">
+        <div class="carousel-inner">
+          <div class="carousel-item active ">
             <img src="../images/diaper.jpg" class="d-block w-100 h-30" alt="...">
-            <div class="carousel-caption d-none d-md-block" style="position: absolute; z-index: 1; display: table; width: 100%; height: 100%; color: black;">
-              <h1 style="display: table-cell; vertical-align: middle; text-align: center;">Call for help! Make a change today!</h1>
+            <div class="carousel-caption d-block" >
+              <h1 >What are you waiting for? Make a change today!</h1>
             </div>
           </div>
           <div class="carousel-item">
             <img src="../images/clothes.jpg" class="d-block w-100 h-30" alt="...">
             <div class="container" style="background-color: grey;">
-              <div class="carousel-caption d-none d-md-block" style="position: absolute; z-index: 1; display: table; width: 100%; height: 100%; color: black;">
-                <h1 style="display: table-cell; vertical-align: middle; text-align: center;">Highly requested category: <br> Clothing</h1>
+              <div class="carousel-caption d-block" >
+                <h1 >Highly requested category: <br> Clothing</h1>
               </div>
             </div>
           </div>
           <div class="carousel-item">
             <img src="../images/toy.jpg" style="opacity: 0.5;" class="d-block w-100 h-30" alt="...">
-            <div class="carousel-caption d-none d-md-block" style="position: absolute; z-index: 1; display: table; width: 100%; height: 100%; color: black;">
-            <h1 style="display: table-cell; vertical-align: middle; text-align: center;">600 people have made a change so far, what about you?</h1>
+            <div class="carousel-caption d-block" >
+            <h1 >600 people have made a change so far, what about you?</h1>
             </div>
           </div>
         </div>
