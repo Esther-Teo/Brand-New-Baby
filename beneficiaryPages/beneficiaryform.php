@@ -60,7 +60,7 @@
             <div>
                 <input type="reset" class="btn btn-info">
                 <!-- use css to style the text to appear as button, upon clicking, turn the href back to the prev page -->
-                <a href="../misc/home.php" class="btn btn-danger">Cancel</a>
+                <a href="../misc/bhome.php" class="btn btn-danger">Cancel</a>
                 <button class="btn btn-success" type="submit" value="Submit" onclick="getConfirmation()">Submit</button>
             </div>
         </form>
