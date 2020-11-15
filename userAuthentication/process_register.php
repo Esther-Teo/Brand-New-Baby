@@ -19,14 +19,14 @@ if ( strlen($useremail) == 0 || !strstr($useremail, "@")) {
 
 $mobilenumber = strval($mobilenumber);
 
-$mobilenumber = $_POST["user_number"]; 
-if ( strlen($mobilenumber) != 8 ) {
-    $errors[] = "Please enter a valid phone number.";
-}
+// $mobilenumber = $_POST["user_number"]; 
+// if ( strlen($mobilenumber) != 8 ) {
+//     $errors[] = "Please enter a valid phone number.";
+// }
 
-elseif ($mobilenumber[0] != '8' || $mobilenumber[0] != '9') {
-    $errors[] = "Please enter a valid phone number.";
-}
+// elseif ($mobilenumber[0] != '8' || $mobilenumber[0] != '9') {
+//     $errors[] = "Please enter a valid phone number.";
+// }
     
 $password = $_POST["password"]; 
 if ( strlen($password) == 0 ) {
