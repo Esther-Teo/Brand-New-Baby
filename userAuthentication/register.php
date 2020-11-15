@@ -26,16 +26,16 @@ if (isset($_SESSION["register_fail"])){
 
     <style>
         /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
+/*         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
         }
-
+ */
         /* Firefox */
-        input[type=number] {
+/*         input[type=number] {
         -moz-appearance: textfield;
-        }
+        } */
 
         html, body {
             height: 100%; 
@@ -156,9 +156,9 @@ if (isset($_SESSION["register_fail"])){
                     
                 </div>
 
-                <div class = "form-group">
+               <div class = "form-group">
 
-                    <input type="number" name="user_number" placeholder = "Mobile Number" class="form-control" />
+                    <input type="tel" name="user_number" placeholder = "Mobile Number (e.g., 81234567)" class="form-control" pattern="[8-9]{1}[0-9]{7}"/>
                     
                 </div>
 
