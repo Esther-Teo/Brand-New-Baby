@@ -45,7 +45,7 @@
             $expandedlistingDAO = new ExpandedListingDAO;
             $expandedlisting = $expandedlistingDAO->getExpandedListing($uname);
             
-            echo "<form class='form-container listing'>
+            echo "<div class='listing'>
 
                 <label for='name'>Name:</label>
                 <p>{$expandedlisting->getName()}</p>
@@ -66,10 +66,10 @@
                 <p>{$expandedlisting->getMrt()}</p>
 
 
-                <button type='submit' class='btn btn-warning btn-block'>I have item</button>
-                <button type='submit' class='btn btn-info btn-block'>I need to purchase item</button>
+                <button class='btn btn-warning btn-block' onclick='location.href=`../donorPages/get_directions.php?mrt={$expandedlisting->getMRT()}&u_name={$expandedlisting->getName()}`'>I have item</button>
+                <button class='btn btn-info btn-block' onclick='location.href=`../donorPages/productlinkpage.php?item={$expandedlisting->getItem()}`'>I need to purchase item</button>
 
-                </form>";
+                </div>";
         ?>
     </div>
 </body>

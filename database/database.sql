@@ -34,17 +34,17 @@ CREATE TABLE if not exists beneficiarylisting (
 
 
 INSERT INTO beneficiarylisting (username, mrt, category, item, quantity, itemcondition) VALUES 
-('Zack', 'Paya Lebar', 'hygiene', 'diapers', '2',  'newCondition' ),
+('Siu Lee', 'Yishun' , 'hygiene', 'babyWipes', '2', 'newCondition'),
 ('Thomas', 'Boon Lay', 'clothing', 'male_clothing', '3', 'preLoved'),
 ('Wong Shi Lin','Sengkang' , 'toys', 'softToys', '5', 'preLoved'),
 ('Tammy Ho', 'Bedok' , 'hygiene', 'bib', '2', 'newCondition'),
-('Timothy', 'RedHill' , 'clothing', 'female_clothing', '2', 'preLoved'),
 ('Jasmine Tan', 'Ang Mo Kio', 'toys', 'books', '1', 'preLoved'),
+('Timothy', 'RedHill' , 'clothing', 'female_clothing', '2', 'preLoved'),
 ('Maximus Lim', 'Jurong East' , 'clothing', 'male_clothing', '2', 'preLoved'),
 ('Jamie Lee', 'Macpherson' , 'toys', 'bathToys', '1', 'preLoved'),
-('Siu Lee', 'Yishun' , 'hygiene', 'babyWipes', '2', 'newCondition'),
 ('Jackson Teo', 'City Hall' , 'toys', 'softToys', '4', 'newCondition'),
 ('Kimberly Ann', 'Choa Chu Kang' , 'hygiene', 'bib', '2', 'newCondition'),
+('Zack', 'Paya Lebar', 'hygiene', 'diapers', '2',  'newCondition' ),
 ('Hoe Hin', 'Simei' , 'clothing', 'unisex_clothing', '5', 'newCondition'),
 ('Darryl', 'Eunos' , 'toys', 'softToys', '3', 'preLoved'),
 ('Wee Liang', 'Queenstown' , 'hygiene', 'diapers', '2', 'newCondition'),
