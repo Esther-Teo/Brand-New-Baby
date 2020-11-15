@@ -29,15 +29,13 @@
         width: 500px;
         margin: 150px auto;
         font-size: 15px;
-
-    }
-
-    #confirmation form {
         margin-bottom: 25px;
         background: #fff8f3; 
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         padding: 30px;
+
     }
+
     .h2 {
         margin: 25px;
         text-align: center;
@@ -46,11 +44,6 @@
 
     label {
         font-size:17px;
-    }
-
-    #row2 {
-        vertical-align: middle;
-        text-align: center;
     }
        
         
@@ -86,17 +79,20 @@
                         <button type="button" id="loc_button" class="btn btn-primary  btn-block" onclick="redirect_user()">Get Directions</button>
     
                     </div>
+                    
+            </form> 
 
-                    <div class = "container" id="row2">
-
-                        <button type="button" id="back_button" class="btn btn-secondary" onclick="location.href='../misc/display_popup.php?u_name=<?php echo $u_name ?>'">Back</button>
-                        <button type="button" id="confirm_button" class="btn btn-danger" onclick="location.href='../misc/home.php'">Confirm</button>
-    
+                    <div class = "row">
+                        
+                        <div class = "col">
+                            <button type="button" id="back_button" class="btn btn-secondary btn-block " onclick="location.href='../misc/display_popup.php?u_name=<?php echo $u_name ?>'">Back</button>
+                        </div>
+                        <div class = "col"
+                            <button type="button" id="confirm_button" class="btn btn-danger btn-block " onclick="location.href='../misc/home.php'">Confirm</button>
+                        </div>
+            
                     </div>
-
-                </form>
-
-        
+    
         </div>
 
 
