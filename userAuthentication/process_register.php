@@ -12,7 +12,7 @@ if ( strlen($username) == 0 ) {
 }
 
 $useremail = $_POST["user_email"]; 
-if ( strlen($useremail) == 0 || !strstr($useremail, "@")) {
+if ( strlen($useremail) == 0) {
     $errors[] = "Email cannot be blank.";
 }
 
