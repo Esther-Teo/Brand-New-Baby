@@ -2,6 +2,9 @@
  
 Brand New Baby is a website designed to connect both donors and single parents, helping parents acquire basic necessities for their children. 
 
+## Important Instruction
+Start with the register.php page. 
+
 ## Usage
 
 ```bash
