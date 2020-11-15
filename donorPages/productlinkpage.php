@@ -76,7 +76,7 @@
     <div class="outer-box">
         
         <div class="top-box"> <!-----"back" button here----->
-            <button type="button" onclick="location.href='../misc/display_popup.php?u_name=<?php echo $u_name ?>'" class="btn" style="font-size:25px"><i class="fa fa-chevron-circle-left"></i></button>
+            <button type="button" onclick="location.href='../misc/home.php'" class="btn" style="font-size:25px"><i class="fa fa-chevron-circle-left"></i></button>
         </div>
 
         <div class="lower-box" > <!-----description here----->
