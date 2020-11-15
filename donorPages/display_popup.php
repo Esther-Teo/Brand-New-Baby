@@ -52,7 +52,7 @@
                 <label for='comments'>Comments:</label>
                 <p>{$expandedlisting->getComments()}</p>
 
-                <button type='submit' class='btn btn-warning btn-block'>I have item</button>
+                <button type='submit' class='btn btn-warning btn-block' onclick="location.href='../donorPages/get_directions.html'">I have item</button>
                 <button type='submit' class='btn btn-info btn-block'>I need to purchase item</button>
 
                 </form>";

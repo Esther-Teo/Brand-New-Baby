@@ -13,7 +13,7 @@ if ( strlen($username) == 0 ) {
 
 $useremail = $_POST["user_email"]; 
 if ( strlen($useremail) == 0 || !strstr($useremail, "@")) {
-    $errors[] = "Please enter a valid email address.";
+    $errors[] = "Email cannot be blank.";
 }
 
 
@@ -24,9 +24,9 @@ if ( strlen($mobilenumber) != 8 ) {
     $errors[] = "Please enter a valid phone number.";
 }
 
-elseif ($mobilenumber[0] != '8' || $mobilenumber[0] != '9') {
-    $errors[] = "Please enter a valid phone number.";
-}
+// elseif ($mobilenumber[0] != '8' || $mobilenumber[0] != '9') {
+//     $errors[] = "Please enter a valid phone number.";
+// }
     
 $password = $_POST["password"]; 
 if ( strlen($password) == 0 ) {
