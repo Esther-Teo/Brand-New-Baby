@@ -157,7 +157,7 @@ if (isset($_SESSION["register_fail"])){
 
                <div class = "form-group">
 
-                    <input type="tel" name="user_number" placeholder = "Mobile Number (e.g., 81234567)" class="form-control" pattern="[8-9]{1}[0-9]{7}"/>
+                    <input type="tel" name="user_number" placeholder = "Mobile Number (e.g. 81234567)" class="form-control" pattern="[8-9]{1}[0-9]{7}"/>
                     
                 </div>
 
