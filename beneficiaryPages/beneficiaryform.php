@@ -40,7 +40,7 @@
     <div class="container">
         <form method="POST" action="./process_beneficiary_form.php" >
             <div class="form-group">
-                <h4>What category do you want to donate?</h4>
+                <h4>Please fill in the following details</h4>
                 <select name="requestCategory" id="requestCategory" required onchange="updateItemOption()">
                     <option value="" disabled selected>Select your category</option>
                     <option value="clothing">Clothing</option>
