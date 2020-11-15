@@ -87,7 +87,7 @@
                         <div class = "col">
                             <button type="button" id="back_button" class="btn btn-secondary btn-block " onclick="location.href='../misc/display_popup.php?u_name=<?php echo $u_name ?>'">Back</button>
                         </div>
-                        <div class = "col"
+                        <div class = "col">
                             <button type="button" id="confirm_button" class="btn btn-danger btn-block " onclick="location.href='../misc/home.php'">Confirm</button>
                         </div>
             
