@@ -6,8 +6,9 @@
         }
     );
 
+    session_start();
     #Retrieve Information passed from form
-    $username = "Mike"; //use session to retrieve this info
+    $username = $_SESSION["username"];
     $category = $_POST["donationCategory"];
     $item = $_POST["donationItem"];
     $quantity = $_POST["itemQuantity"];

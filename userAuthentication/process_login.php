@@ -26,10 +26,13 @@
         if ($status)
         { 
             $_SESSION["useremail"] = $useremail;
+            $_SESSION["username"] = $user->getUsername();
+
             if ($user->getAcctype() == 'donor'){
                 header("Location: ../misc/home.php");
             }
             elseif ($user->getAcctype() == 'beneficiary'){
+                $_SESSION["mrt"] = $user->getMrt();
                 header("Location: ../misc/bhome.php");
             }
             

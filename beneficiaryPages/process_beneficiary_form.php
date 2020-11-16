@@ -6,9 +6,10 @@
         }
     );
 
+    session_start();
     #Retrieve Information passed from form
-    $username = "helen"; //use session to retrieve this info
-    $mrt = "Serangoon"; //use session to retrieve this info
+    $username = $_SESSION["username"];
+    $mrt = $_SESSION["mrt"];
     $category = $_POST["requestCategory"];
     $item = $_POST["requestItem"];
     $quantity = $_POST["itemQuantity"];
