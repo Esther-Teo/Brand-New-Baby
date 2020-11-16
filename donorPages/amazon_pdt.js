@@ -24,7 +24,7 @@ function add_amazon_product(itemName) {
                 var item_obj = itemArray[item];
                 item_asin = item_obj.asin;
                 //item_price = add_amazon_price(item_obj.asin);
-                str+=`     <h3>Product Name:${item_obj.title} <br></h3>
+                str+=`     <h3 >Product Name:${item_obj.title} <br></h3>
                 <h3>Link to purchase:<a href=${item_obj.link}>${item_obj.link}</a> </h3>`; 
                 //<h3>Price:$${add_amazon_price(item_asin)} <br> </h3>
                 break;

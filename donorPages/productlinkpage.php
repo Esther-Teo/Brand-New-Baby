@@ -73,14 +73,15 @@
 ?>
 
 <body onload="add_amazon_product('<?php echo $item; ?>')">
-    <div class="outer-box">
+    <div class="outer-box" >
         
         <div class="top-box"> <!-----"back" button here----->
             <button type="button" onclick="location.href='../misc/home.php'" class="btn" style="font-size:25px"><i class="fa fa-chevron-circle-left"></i></button>
         </div>
 
         <div class="lower-box" > <!-----description here----->
-            <div id="display_amazon_product"></div>
+            <div id="display_amazon_product" style="overflow-wrap: break-word;
+  word-wrap: break-word;"></div>
         </div>
     </div>
 </body>
