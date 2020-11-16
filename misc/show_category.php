@@ -20,9 +20,6 @@
 
         body {
             background-image: url("../images/showcatHygiene.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
         }
 
         .heading {
