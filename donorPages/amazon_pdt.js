@@ -41,9 +41,9 @@ function add_amazon_product(itemName) {
                 item_term +=word;
             }
         }
-            var url = "https://api.zilerate.com/amazon/search?apiKey=LO4gl6zfUX1rKXGc4PLt05999vmls37U7X288rTT&domain=amazon.sg&includeHtml=true&searchTerm="+item_term+"&sortBy=price_low_to_high";
+            var url = "https://api.zilerate.com/amazon/search?apiKey=mW1443vaBm1G2gVOYp0Kcat8R9gVXd617mNPVtO9&domain=amazon.sg&includeHtml=true&searchTerm="+item_term+"&sortBy=price_low_to_high";
     }else{
-        var url = "https://api.zilerate.com/amazon/search?apiKey=LO4gl6zfUX1rKXGc4PLt05999vmls37U7X288rTT&domain=amazon.sg&includeHtml=true&searchTerm="+itemName+"&sortBy=price_low_to_high";
+        var url = "https://api.zilerate.com/amazon/search?apiKey=mW1443vaBm1G2gVOYp0Kcat8R9gVXd617mNPVtO9&domain=amazon.sg&includeHtml=true&searchTerm="+itemName+"&sortBy=price_low_to_high";
     }
 
     request.open("GET", url, true);
